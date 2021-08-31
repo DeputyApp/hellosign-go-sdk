@@ -1,5 +1,3 @@
-[![build status](https://travis-ci.org/jheth/hellosign-go-sdk.svg?branch=master)](https://travis-ci.org/jheth/hellosign-go-sdk)
-
 # HelloSign Go SDK
 A Go wrapper for the HelloSign API.
 
@@ -7,11 +5,6 @@ The unofficial library for using the HelloSign API for golang.
 
 https://app.hellosign.com/api/reference
 
-## Installation
-
-```go
-go get github.com/jheth/hellosign-go-sdk
-```
 ## Usage
 
 ### Client
@@ -25,7 +18,7 @@ client := hellosign.Client{APIKey: "ACCOUNT API KEY"}
 __using FileURL__
 
 ```go
-request := hellosign.EmbeddedRequest{
+request := hellosign.EmbeddedSignatureRequest{
   TestMode: true,
   ClientID: os.Getenv("HELLOSIGN_CLIENT_ID"),
   FileURL:  []string{"http://www.pdf995.com/samples/pdf.pdf"},
@@ -44,13 +37,13 @@ if err != nil {
   log.Fatal(err)
 }
 // type SignatureRequest
-fmt.Println(response.SignatureRequestID)
+fmt.Println(response.GetSignatureRequestID())
 ```
 
 __using File__
 
 ```go
-request := hellosign.EmbeddedRequest{
+request := hellosign.EmbeddedSignatureRequest{
   TestMode: true,
   ClientID: "APP_CLIENT_ID",
   File:     []string{"public/offer_letter.pdf"},
@@ -73,13 +66,13 @@ if err != nil {
   log.Fatal(err)
 }
 // type SignatureRequest
-fmt.Println(response.SignatureRequestID)
+fmt.Println(response.GetSignatureRequestID())
 ```
 
 __Full Feature__
 
 ```go
-request := hellosign.EmbeddedRequest{
+request := hellosign.EmbeddedSignatureRequest{
   TestMode: true,
   ClientID: os.Getenv("HS_CLIENT_ID"),
   File: []string{
@@ -146,7 +139,7 @@ if err != nil {
   log.Fatal(err)
 }
 // type SignatureRequest
-fmt.Println(response.SignatureRequestID)
+fmt.Println(response.GetSignatureRequestID())
 ```
 
 ### Get Signature Request
@@ -156,8 +149,8 @@ fmt.Println(response.SignatureRequestID)
 res, err := client.GetSignatureRequest("6d7ad140141a7fe6874fec55931c363e0301c353")
 
 // res is SignatureRequest type
-res.SignatureRequestID
-res.Signatures
+res.GetSignatureRequestID()
+res.GetSignatures()
 ```
 
 ### Get Embedded Sign URL
@@ -166,7 +159,7 @@ res.Signatures
 // uses SignerID
 res, err := client.GetEmbeddedSignURL("deaf86bfb33764d9a215a07cc060122d")
 
-res.SignURL =>  "https://app.hellosign.com/editor/embeddedSign?signature_id=deaf86bfb33764d9a215a07cc060122d&token=TOKEN"
+res.GetSignUrl() =>  "https://app.hellosign.com/editor/embeddedSign?signature_id=deaf86bfb33764d9a215a07cc060122d&token=TOKEN"
 ```
 
 ### Get PDF
@@ -194,12 +187,12 @@ fileInfo.Name() => "download.zip"
 ```go
 res, err := client.ListSignatureRequests()
 
-res.ListInfo.NumPages => 1
-res.ListInfo.Page => 1
-res.ListInfo.NumResults => 19
-res.ListInfo.PageSize => 20
+res.GetListInfo().GetNumPages() => 1
+res.GetListInfo().GetPage() => 1
+res.GetListInfo().GetNumResults() => 19
+res.GetListInfo().GetPageSize() => 20
 
-len(res.SignatureRequests) => 19
+len(res.GetSignatureRequests()) => 19
 ```
 
 ### Update Signature Request
@@ -211,8 +204,8 @@ res, err := client.UpdateSignatureRequest(
   "joe@hello.com", // New Email
 )
 
-res.SignatureRequestID => "9040be434b1301e31019b3dad895ed580f8ca890"
-res.Signatures[0].SignerEmailAddress => "joe@hello.com"
+res.GetSignatureRequestID() => "9040be434b1301e31019b3dad895ed580f8ca890"
+res.GetSignatures()[0].GetSignerEmailAddress() => "joe@hello.com"
 ```
 
 ### Cancel Signature Request

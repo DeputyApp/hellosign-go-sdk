@@ -65,7 +65,7 @@ func (m *Client) GetEmbeddedSignURL(signatureRequestID string) (*model.SignURLRe
 		return nil, err
 	}
 
-	return data.Embedded, nil
+	return data.GetEmbedded(), nil
 }
 
 func (m *Client) SaveFile(signatureRequestID, fileType, destFilePath string) (os.FileInfo, error) {
@@ -204,7 +204,7 @@ func (m *Client) marshalMultipartRequest(embRequest model.EmbeddedSignatureReque
 
 		switch val.Kind() {
 		case reflect.Map:
-			for k, v := range embRequest.Metadata {
+			for k, v := range embRequest.GetMetadata() {
 				formField, err := w.CreateFormField(fmt.Sprintf("metadata[%v]", k))
 				if err != nil {
 					return nil, nil, err
@@ -214,25 +214,25 @@ func (m *Client) marshalMultipartRequest(embRequest model.EmbeddedSignatureReque
 		case reflect.Slice:
 			switch fieldTag {
 			case "signers":
-				for i, signer := range embRequest.Signers {
+				for i, signer := range embRequest.GetSigners() {
 					email, err := w.CreateFormField(fmt.Sprintf("signers[%v][email_address]", i))
 					if err != nil {
 						return nil, nil, err
 					}
-					email.Write([]byte(signer.Email))
+					email.Write([]byte(signer.GetEmail()))
 
 					name, err := w.CreateFormField(fmt.Sprintf("signers[%v][name]", i))
 					if err != nil {
 						return nil, nil, err
 					}
-					name.Write([]byte(signer.Name))
+					name.Write([]byte(signer.GetName()))
 
 					if signer.Order != 0 {
 						order, err := w.CreateFormField(fmt.Sprintf("signers[%v][order]", i))
 						if err != nil {
 							return nil, nil, err
 						}
-						order.Write([]byte(strconv.Itoa(signer.Order)))
+						order.Write([]byte(strconv.Itoa(signer.GetOrder())))
 					}
 
 					if signer.Pin != "" {
@@ -240,11 +240,11 @@ func (m *Client) marshalMultipartRequest(embRequest model.EmbeddedSignatureReque
 						if err != nil {
 							return nil, nil, err
 						}
-						pin.Write([]byte(signer.Pin))
+						pin.Write([]byte(signer.GetPin()))
 					}
 				}
 			case "cc_email_addresses":
-				for k, v := range embRequest.CCEmailAddresses {
+				for k, v := range embRequest.GetCCEmailAddresses() {
 					formField, err := w.CreateFormField(fmt.Sprintf("cc_email_addresses[%v]", k))
 					if err != nil {
 						return nil, nil, err
@@ -252,19 +252,19 @@ func (m *Client) marshalMultipartRequest(embRequest model.EmbeddedSignatureReque
 					formField.Write([]byte(v))
 				}
 			case "form_fields_per_document":
-				if len(embRequest.FormFieldsPerDocument) > 0 {
+				if len(embRequest.GetFormFieldsPerDocument()) > 0 {
 					formField, err := w.CreateFormField(fieldTag)
 					if err != nil {
 						return nil, nil, err
 					}
-					ffpdJSON, err := json.Marshal(embRequest.FormFieldsPerDocument)
+					ffpdJSON, err := json.Marshal(embRequest.GetFormFieldsPerDocument())
 					if err != nil {
 						return nil, nil, err
 					}
 					formField.Write([]byte(ffpdJSON))
 				}
 			case "file":
-				for i, path := range embRequest.File {
+				for i, path := range embRequest.GetFile() {
 					file, _ := os.Open(path)
 
 					formField, err := w.CreateFormFile(fmt.Sprintf("file[%v]", i), file.Name())
@@ -274,7 +274,7 @@ func (m *Client) marshalMultipartRequest(embRequest model.EmbeddedSignatureReque
 					_, err = io.Copy(formField, file)
 				}
 			case "file_url":
-				for i, fileURL := range embRequest.FileURL {
+				for i, fileURL := range embRequest.GetFileURL() {
 					formField, err := w.CreateFormField(fmt.Sprintf("file_url[%v]", i))
 					if err != nil {
 						return nil, nil, err
@@ -311,7 +311,7 @@ func (m *Client) parseSignatureRequestResponse(response *http.Response) (*model.
 
 	err := json.NewDecoder(response.Body).Decode(sigRequestResponse)
 
-	sigRequest := sigRequestResponse.SignatureRequest
+	sigRequest := sigRequestResponse.GetSignatureRequest()
 
 	return sigRequest, err
 }

@@ -176,8 +176,8 @@ func (s *SignatureRequest) GetResponseData() []*ResponseData {
 	return nil
 }
 
-// GetSignature returns Signatures
-func (s *SignatureRequest) GetSignature() []*Signature {
+// GetSignatures returns Signatures
+func (s *SignatureRequest) GetSignatures() []*Signature {
 	if s != nil {
 		return s.Signatures
 	}
