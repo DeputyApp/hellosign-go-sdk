@@ -15,3 +15,107 @@ type Signature struct {
 	ReassignmentReason string  `json:"reassignment_reason"`  // Reason provided by original signer who reassigned to this signer.
 	Error              *string `json:"error"`                // Error message pertaining to this signer, or null.
 }
+
+// GetSignatureID returns SignatureID
+func (s *Signature) GetSignatureID() string {
+	if s != nil {
+		return s.SignatureID
+	}
+	return ""
+}
+
+// GetSignerEmailAddress returns SignerEmailAddress
+func (s *Signature) GetSignerEmailAddress() string {
+	if s != nil {
+		return s.SignerEmailAddress
+	}
+	return ""
+}
+
+// GetSignerName returns SignerName
+func (s *Signature) GetSignerName() string {
+	if s != nil {
+		return s.SignerName
+	}
+	return ""
+}
+
+// GetOrder returns Order
+func (s *Signature) GetOrder() int {
+	if s != nil {
+		return s.Order
+	}
+	return 0
+}
+
+// GetStatusCode returns StatusCode
+func (s *Signature) GetStatusCode() string {
+	if s != nil {
+		return s.StatusCode
+	}
+	return ""
+}
+
+// GetDeclineReason returns DeclineReason
+func (s *Signature) GetDeclineReason() string {
+	if s != nil {
+		return s.DeclineReason
+	}
+	return ""
+}
+
+// GetSignedAt returns SignedAt
+func (s *Signature) GetSignedAt() int {
+	if s != nil {
+		return s.SignedAt
+	}
+	return 0
+}
+
+// GetLastViewedAt returns LastViewedAt
+func (s *Signature) GetLastViewedAt() int {
+	if s != nil {
+		return s.LastViewedAt
+	}
+	return 0
+}
+
+// GetLastRemindedAt returns LastRemindedAt
+func (s *Signature) GetLastRemindedAt() int {
+	if s != nil {
+		return s.LastRemindedAt
+	}
+	return 0
+}
+
+// GetHasPin returns HasPin
+func (s *Signature) GetHasPin() bool {
+	if s != nil {
+		return s.HasPin
+	}
+	return false
+}
+
+// GetReassignedBy returns ReassignedBy
+func (s *Signature) GetReassignedBy() string {
+	if s != nil {
+		return s.ReassignedBy
+	}
+	return ""
+}
+
+// GetReassignmentReason returns ReassignmentReason
+func (s *Signature) GetReassignmentReason() string {
+	if s != nil {
+		return s.ReassignmentReason
+	}
+	return ""
+}
+
+// GetError returns Error
+func (s *Signature) GetError() *string {
+	if s != nil {
+		return s.Error
+	}
+	return nil
+}

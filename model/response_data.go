@@ -8,3 +8,51 @@ type ResponseData struct {
 	Required    bool   `json:"required"`     // A boolean value denoting if this field is required.
 	Type        string `json:"type"`         // The type of this form field. See field types
 }
+
+// GetApiID returns ApiID
+func (r *ResponseData) GetApiID() string {
+	if r != nil {
+		return r.ApiID
+	}
+	return ""
+}
+
+// GetSignatureID returns SignatureID
+func (r *ResponseData) GetSignatureID() string {
+	if r != nil {
+		return r.SignatureID
+	}
+	return ""
+}
+
+// GetName returns Name
+func (r *ResponseData) GetName() string {
+	if r != nil {
+		return r.Name
+	}
+	return ""
+}
+
+// GetValue returns Value
+func (r *ResponseData) GetValue() string {
+	if r != nil {
+		return r.Value
+	}
+	return ""
+}
+
+// GetRequired returns Required
+func (r *ResponseData) GetRequired() bool {
+	if r != nil {
+		return r.Required
+	}
+	return false
+}
+
+// GetType returns Type
+func (r *ResponseData) GetType() string {
+	if r != nil {
+		return r.Type
+	}
+	return ""
+}
