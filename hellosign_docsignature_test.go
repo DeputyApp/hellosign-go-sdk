@@ -1,6 +1,7 @@
 package hellosign
 
 import (
+	"github.com/DeputyApp/hellosign-go-sdk/model"
 	"log"
 	"net/http"
 	"os"
@@ -18,7 +19,7 @@ func TestCreateEmbeddedSignatureRequestSuccess(t *testing.T) {
 
 	client := createVcrClient(vcr)
 
-	embReq := createEmbeddedRequest()
+	embReq := createEmbeddedSignatureRequest()
 	res, err := client.CreateEmbeddedSignatureRequest(embReq)
 
 	assert.NotNil(t, res, "Should return response")
@@ -38,7 +39,7 @@ func TestCreateEmbeddedSignatureRequestSuccess2(t *testing.T) {
 
 	client := createVcrClient(vcr)
 
-	embReq := createEmbeddedRequest()
+	embReq := createEmbeddedSignatureRequest()
 	res, err := client.CreateEmbeddedSignatureRequest(embReq)
 
 	assert.NotNil(t, res, "Should return response")
@@ -58,8 +59,8 @@ func TestCreateEmbeddedSignatureRequestMissingSigners(t *testing.T) {
 
 	client := createVcrClient(vcr)
 
-	embReq := createEmbeddedRequest()
-	embReq.Signers = []Signer{}
+	embReq := createEmbeddedSignatureRequest()
+	embReq.Signers = []model.Signer{}
 
 	res, err := client.CreateEmbeddedSignatureRequest(embReq)
 
@@ -74,7 +75,7 @@ func TestCreateEmbeddedSignatureRequestWarnings(t *testing.T) {
 
 	client := createVcrClient(vcr)
 
-	embReq := createEmbeddedRequest()
+	embReq := createEmbeddedSignatureRequest()
 
 	res, err := client.CreateEmbeddedSignatureRequest(embReq)
 
@@ -91,13 +92,13 @@ func TestCreateEmbeddedSignatureRequestFileURL(t *testing.T) {
 
 	client := createVcrClient(vcr)
 
-	request := EmbeddedRequest{
+	request := model.EmbeddedSignatureRequest{
 		TestMode: true,
 		ClientID: os.Getenv("HELLOSIGN_CLIENT_ID"),
 		FileURL:  []string{"http://www.pdf995.com/samples/pdf.pdf"},
 		Title:    "My First Document",
 		Subject:  "Contract",
-		Signers: []Signer{
+		Signers: []model.Signer{
 			{
 				Email: "jane@example.com",
 				Name:  "Jane Doe",
@@ -275,9 +276,9 @@ func createVcrClient(transport *recorder.Recorder) Client {
 	return client
 }
 
-func createEmbeddedRequest() EmbeddedRequest {
+func createEmbeddedSignatureRequest() model.EmbeddedSignatureRequest {
 
-	return EmbeddedRequest{
+	return model.EmbeddedSignatureRequest{
 		TestMode: true,
 		ClientID: os.Getenv("HELLOSIGN_CLIENT_ID"),
 		File: []string{
@@ -288,7 +289,7 @@ func createEmbeddedRequest() EmbeddedRequest {
 		Subject: "awesome",
 		Message: "cool message bro",
 		// SigningRedirectURL: "example signing redirect url",
-		Signers: []Signer{
+		Signers: []model.Signer{
 			{
 				Email: "freddy@hellosign.com",
 				Name:  "Freddy Rangel",
@@ -308,8 +309,8 @@ func createEmbeddedRequest() EmbeddedRequest {
 			"no":   "cats",
 			"more": "dogs",
 		},
-		FormFieldsPerDocument: [][]DocumentFormField{
-			[]DocumentFormField{
+		FormFieldsPerDocument: [][]model.DocumentFormField{
+			[]model.DocumentFormField{
 				{
 					APIId:    "api_id",
 					Name:     "display name",
@@ -321,7 +322,7 @@ func createEmbeddedRequest() EmbeddedRequest {
 					Signer:   0,
 				},
 			},
-			[]DocumentFormField{
+			[]model.DocumentFormField{
 				{
 					APIId:    "api_id_2",
 					Name:     "display name 2",
