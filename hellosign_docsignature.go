@@ -28,7 +28,7 @@ type Client struct {
 // CreateEmbeddedSignatureRequest creates a new embedded signature
 func (m *Client) CreateEmbeddedSignatureRequest(embeddedRequest model.EmbeddedSignatureRequest) (*model.SignatureRequest, error) {
 
-	params, writer, err := m.marshalMultipartRequest(embeddedRequest)
+	params, writer, err := m.marshalMultipartEmbeddedSignatureRequest(embeddedRequest)
 	if err != nil {
 		return nil, err
 	}
@@ -127,7 +127,7 @@ func (m *Client) GetFiles(signatureRequestID, fileType string) ([]byte, error) {
 }
 
 // ListSignatureRequests - Lists the SignatureRequests (both inbound and outbound) that you have access to.
-func (m *Client) ListSignatureRequests() (*model.ListResponse, error) {
+func (m *Client) ListSignatureRequests() (*model.ListSignaturesResponse, error) {
 	path := fmt.Sprintf("signature_request/list")
 	response, err := m.get(path)
 	if err != nil {
@@ -136,7 +136,7 @@ func (m *Client) ListSignatureRequests() (*model.ListResponse, error) {
 
 	defer response.Body.Close()
 
-	listResponse := &model.ListResponse{}
+	listResponse := &model.ListSignaturesResponse{}
 	err = json.NewDecoder(response.Body).Decode(listResponse)
 	if err != nil {
 		return nil, err
@@ -186,7 +186,7 @@ func (m *Client) CancelSignatureRequest(signatureRequestID string) (*http.Respon
 
 // Private Methods
 
-func (m *Client) marshalMultipartRequest(embRequest model.EmbeddedSignatureRequest) (*bytes.Buffer, *multipart.Writer, error) {
+func (m *Client) marshalMultipartEmbeddedSignatureRequest(embRequest model.EmbeddedSignatureRequest) (*bytes.Buffer, *multipart.Writer, error) {
 
 	var b bytes.Buffer
 	w := multipart.NewWriter(&b)
