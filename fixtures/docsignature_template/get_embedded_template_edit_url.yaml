@@ -1,0 +1,43 @@
+---
+version: 1
+rwmutex: {}
+interactions:
+  - request:
+      body: ""
+      form: {}
+      headers: {}
+      url: https://api.hellosign.com/v3/embedded/edit_url/76a888f4ca1dc1f726cbfd3381d7b9a19066c047
+      method: GET
+    response:
+      body: '{"embedded":{"edit_url":"https:\/\/embedded.hellosign.com\/prep-and-send\/embedded-template?cached_params_token=741d9a4336eb5b26c772d647be0736e6","expires_at":1630908730}}'
+      headers:
+        Access-Control-Allow-Headers:
+          - Authorization, Origin, X-Requested-With, Content-Type, Accept
+        Access-Control-Allow-Methods:
+          - GET, POST, OPTIONS
+        Access-Control-Allow-Origin:
+          - '*'
+        Connection:
+          - keep-alive
+        Content-Type:
+          - application/json
+        Date:
+          - Tue, 12 Sep 2017 22:33:18 GMT
+        P3p:
+          - CP="NOP3PPOLICY"
+        Server:
+          - Apache
+        Strict-Transport-Security:
+          - max-age=15768000
+        User-Agent:
+          - HelloSign API
+        Vary:
+          - Accept-Encoding
+        X-Ratelimit-Limit:
+          - "2000"
+        X-Ratelimit-Limit-Remaining:
+          - "1998"
+        X-Ratelimit-Reset:
+          - "1505255598"
+      status: 200 OK
+      code: 200

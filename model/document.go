@@ -2,7 +2,7 @@ package model
 
 type Document struct {
 	Name         string               `json:"name"`
-	Index        string               `json:"index"`
+	Index        int                  `json:"index"`
 	FieldGroups  []DocumentFieldGroup `json:"field_groups"`
 	FormFields   []DocumentFormField  `json:"form_fields"`
 	CustomFields []CustomField        `json:"custom_fields"`
@@ -18,12 +18,12 @@ func (d *Document) GetName() string {
 }
 
 // GetIndex returns Index
-func (d *Document) GetIndex() string {
+func (d *Document) GetIndex() int {
 	if d != nil {
 		return d.Index
 	}
 
-	return ""
+	return 0
 }
 
 // GetFieldGroups returns FieldGroups
