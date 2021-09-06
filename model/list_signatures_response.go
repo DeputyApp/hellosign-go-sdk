@@ -1,12 +1,12 @@
 package model
 
-type ListResponse struct {
+type ListSignaturesResponse struct {
 	ListInfo          *ListInfo           `json:"list_info"`
 	SignatureRequests []*SignatureRequest `json:"signature_requests"`
 }
 
 // GetListInfo returns ListInfo
-func (l *ListResponse) GetListInfo() *ListInfo {
+func (l *ListSignaturesResponse) GetListInfo() *ListInfo {
 	if l != nil {
 		return l.ListInfo
 	}
@@ -14,7 +14,7 @@ func (l *ListResponse) GetListInfo() *ListInfo {
 }
 
 // GetSignatureRequests returns SignatureRequests
-func (l *ListResponse) GetSignatureRequests() []*SignatureRequest {
+func (l *ListSignaturesResponse) GetSignatureRequests() []*SignatureRequest {
 	if l != nil {
 		return l.SignatureRequests
 	}
