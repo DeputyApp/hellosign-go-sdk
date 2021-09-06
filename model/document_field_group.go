@@ -1,8 +1,8 @@
 package model
 
 type DocumentFieldGroup struct {
-	Name     string `json:"name"`
-	Rule     string `json:"rule"`
+	Name string            `json:"name"`
+	Rule map[string]string `json:"rule"`
 }
 
 // GetName returns Name
@@ -15,10 +15,10 @@ func (d *DocumentFieldGroup) GetName() string {
 }
 
 // GetRule returns Rule
-func (d *DocumentFieldGroup) GetRule() string {
+func (d *DocumentFieldGroup) GetRule() map[string]string {
 	if d != nil {
 		return d.Rule
 	}
 
-	return ""
+	return nil
 }

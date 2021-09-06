@@ -1,11 +1,11 @@
 package model
 
 type CreateEmbeddedTemplateResponse struct {
-	Template *Template `json:"template"`
+	Template *EmbeddedTemplate `json:"template"`
 }
 
-// GetTemplate returns SignatureRequest
-func (cr *CreateEmbeddedTemplateResponse) GetTemplate() *Template {
+// GetTemplate returns Template
+func (cr *CreateEmbeddedTemplateResponse) GetTemplate() *EmbeddedTemplate {
 	if cr != nil {
 		return cr.Template
 	}
