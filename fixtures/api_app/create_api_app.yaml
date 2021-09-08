@@ -1,0 +1,56 @@
+---
+version: 1
+interactions:
+- request:
+    body: "--3796fd42c9ced604e079ccf39f02a1dd07fa3bd098b2194344f8882e5570\r\nContent-Disposition:
+      form-data; name=\"name\"\r\n\r\nExample API App for testing\r\n--3796fd42c9ced604e079ccf39f02a1dd07fa3bd098b2194344f8882e5570\r\nContent-Disposition:
+      form-data; name=\"domain\"\r\n\r\nexample.com\r\n--3796fd42c9ced604e079ccf39f02a1dd07fa3bd098b2194344f8882e5570\r\nContent-Disposition:
+      form-data; name=\"callback_url\"\r\n\r\nhttps://www.example.com/callback\r\n--3796fd42c9ced604e079ccf39f02a1dd07fa3bd098b2194344f8882e5570\r\nContent-Disposition:
+      form-data; name=\"white_labeling_options\"\r\n\r\n{\"header_background_color\":\"#F7F8F9\",\"primary_button_color\":\"#C0A464\",\"text_color2\":\"#808080\"}"
+    form: {}
+    headers:
+      Content-Type:
+      - multipart/form-data; boundary=3796fd42c9ced604e079ccf39f02a1dd07fa3bd098b2194344f8882e5570
+    url: https://api.hellosign.com/v3/api_app
+    method: POST
+  response:
+    body: '{"api_app":{"client_id":"d5378e8bb1ad618b6e554ac237e2b592","created_at":1631062711,"name":"Example
+      API App for testing","domain":"example.com","callback_url":"https:\/\/www.example.com\/callback","is_approved":false,"owner_account":{"account_id":"a56783e678b6063c4f38180736eff28c74acb917","email_address":"primba@deputy.com"},"options":{"can_insert_everywhere":true},"oauth":null,"white_labeling_options":"{\"header_background_color\":\"#F7F8F9\",\"primary_button_color\":\"#C0A464\",\"text_color2\":\"#808080\"}"},"warnings":[{"warning_msg":"White
+      labeling will be active in test mode only. Upgrade your account to use in production.","warning_name":"test_mode_only"}]}'
+    headers:
+      Access-Control-Allow-Headers:
+      - Authorization, Origin, X-Requested-With, Content-Type, Accept
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Connection:
+      - keep-alive
+      Content-Length:
+      - "670"
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 08 Sep 2021 00:58:32 GMT
+      P3p:
+      - CP="NOP3PPOLICY"
+      Server:
+      - Apache
+      Set-Cookie:
+      - AWSALB=VDjhMxGEaON901MabPYNkw+KTfSnec0H3MmFlIXghd4Es4odsGDXxdC3ueU6sLorL3q6t+jW/go7qZrQd7BxhCQbaml8s5+I6qY3nuf72zXIgjL8ubPEynnFoI10;
+        Expires=Wed, 15 Sep 2021 00:58:31 GMT; Path=/
+      - AWSALBCORS=VDjhMxGEaON901MabPYNkw+KTfSnec0H3MmFlIXghd4Es4odsGDXxdC3ueU6sLorL3q6t+jW/go7qZrQd7BxhCQbaml8s5+I6qY3nuf72zXIgjL8ubPEynnFoI10;
+        Expires=Wed, 15 Sep 2021 00:58:31 GMT; Path=/; SameSite=None; Secure
+      Strict-Transport-Security:
+      - max-age=31536000
+      User-Agent:
+      - HelloSign API
+      X-Ratelimit-Limit:
+      - "100"
+      X-Ratelimit-Limit-Remaining:
+      - "99"
+      X-Ratelimit-Reset:
+      - "1631062711"
+    status: 201 Created
+    code: 201
+    duration: ""
