@@ -3,6 +3,7 @@ package hellosign
 import (
 	"github.com/DeputyApp/hellosign-go-sdk/model"
 	"github.com/stretchr/testify/assert"
+	"os"
 	"testing"
 )
 
@@ -28,7 +29,7 @@ func TestClient_CreateEmbeddedTemplate(t *testing.T) {
 	client := createVcrClient(vcr)
 	req := model.CreateEmbeddedTemplateRequest{
 		TestMode: true,
-		ClientID: "4ea503a2d19789c3a07407501e5818c0",
+		ClientID: os.Getenv("HELLOSIGN_CLIENT_ID"),
 		File:     []string{"fixtures/offer_letter.pdf"},
 		Title:    "Offer Letter",
 		SignerRoles: []model.SignerRole{model.SignerRole{

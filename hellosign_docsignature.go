@@ -41,6 +41,21 @@ func (m *Client) CreateEmbeddedSignatureRequest(embeddedRequest model.EmbeddedSi
 	return m.parseSignatureRequestResponse(response)
 }
 
+// CreateEmbeddedSignatureWithTemplateRequest creates a new embedded signature with template id
+func (m *Client) CreateEmbeddedSignatureWithTemplateRequest(embeddedRequest model.EmbeddedSignatureWithTemplateRequest, signerRoles []model.SignerRole) (*model.SignatureRequest, error) {
+	params, writer, err := m.marshalMultipartEmbeddedSignatureWithTemplateRequest(embeddedRequest, signerRoles)
+	if err != nil {
+		return nil, err
+	}
+
+	response, err := m.post("signature_request/create_embedded_with_template", params, *writer)
+	if err != nil {
+		return nil, err
+	}
+
+	return m.parseSignatureRequestResponse(response)
+}
+
 // GetSignatureRequest - Gets a SignatureRequest that includes the current status for each signer.
 func (m *Client) GetSignatureRequest(signatureRequestID string) (*model.SignatureRequest, error) {
 	path := fmt.Sprintf("signature_request/%s", signatureRequestID)
@@ -52,8 +67,8 @@ func (m *Client) GetSignatureRequest(signatureRequestID string) (*model.Signatur
 }
 
 // GetEmbeddedSignURL - Retrieves an embedded signing object.
-func (m *Client) GetEmbeddedSignURL(signatureRequestID string) (*model.SignURLResponse, error) {
-	path := fmt.Sprintf("embedded/sign_url/%s", signatureRequestID)
+func (m *Client) GetEmbeddedSignURL(signatureID string) (*model.SignURLResponse, error) {
+	path := fmt.Sprintf("embedded/sign_url/%s", signatureID)
 	response, err := m.get(path)
 	if err != nil {
 		return nil, err
@@ -285,6 +300,91 @@ func (m *Client) marshalMultipartEmbeddedSignatureRequest(embRequest model.Embed
 						return nil, nil, err
 					}
 					formField.Write([]byte(fileURL))
+				}
+			}
+		case reflect.Bool:
+			formField, err := w.CreateFormField(fieldTag)
+			if err != nil {
+				return nil, nil, err
+			}
+			formField.Write([]byte(m.boolToIntString(val.Bool())))
+		default:
+			if val.String() != "" {
+				formField, err := w.CreateFormField(fieldTag)
+				if err != nil {
+					return nil, nil, err
+				}
+				formField.Write([]byte(val.String()))
+			}
+		}
+	}
+
+	w.Close()
+	return &b, w, nil
+}
+
+func (m *Client) marshalMultipartEmbeddedSignatureWithTemplateRequest(embRequest model.EmbeddedSignatureWithTemplateRequest, signerRoles []model.SignerRole) (*bytes.Buffer, *multipart.Writer, error) {
+
+	var b bytes.Buffer
+	w := multipart.NewWriter(&b)
+
+	structType := reflect.TypeOf(embRequest)
+	val := reflect.ValueOf(embRequest)
+
+	for i := 0; i < val.NumField(); i++ {
+
+		valueField := val.Field(i)
+		f := valueField.Interface()
+		val := reflect.ValueOf(f)
+		field := structType.Field(i)
+		fieldTag := field.Tag.Get("form_field")
+
+		switch val.Kind() {
+		case reflect.Map:
+			for k, v := range embRequest.GetMetadata() {
+				formField, err := w.CreateFormField(fmt.Sprintf("metadata[%v]", k))
+				if err != nil {
+					return nil, nil, err
+				}
+				formField.Write([]byte(v))
+			}
+		case reflect.Slice:
+			switch fieldTag {
+			case "signers":
+				signers := embRequest.GetSigners()
+				if len(signerRoles) != len(embRequest.GetSigners()) {
+					return nil, nil, fmt.Errorf("the number of signers and roles must match. [SignerRoles: %d, Signers: %d]", len(signerRoles), len(signers))
+				}
+
+				for i, signer := range signers {
+					roleName := signerRoles[i].GetName()
+					email, err := w.CreateFormField(fmt.Sprintf("signers[%v][email_address]", roleName))
+					if err != nil {
+						return nil, nil, err
+					}
+					email.Write([]byte(signer.GetEmail()))
+
+					name, err := w.CreateFormField(fmt.Sprintf("signers[%v][name]", roleName))
+					if err != nil {
+						return nil, nil, err
+					}
+					name.Write([]byte(signer.GetName()))
+
+					if signer.Pin != "" {
+						pin, err := w.CreateFormField(fmt.Sprintf("signers[%v][pin]", i))
+						if err != nil {
+							return nil, nil, err
+						}
+						pin.Write([]byte(signer.GetPin()))
+					}
+				}
+			case "cc_email_addresses":
+				for k, v := range embRequest.GetCCEmailAddresses() {
+					formField, err := w.CreateFormField(fmt.Sprintf("cc_email_addresses[%v]", k))
+					if err != nil {
+						return nil, nil, err
+					}
+					formField.Write([]byte(v))
 				}
 			}
 		case reflect.Bool:

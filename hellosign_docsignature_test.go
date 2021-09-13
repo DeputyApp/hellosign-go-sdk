@@ -2,6 +2,7 @@ package hellosign
 
 import (
 	"github.com/DeputyApp/hellosign-go-sdk/model"
+	"github.com/stretchr/testify/require"
 	"log"
 	"net/http"
 	"os"
@@ -249,6 +250,34 @@ func TestUpdateSignatureRequestFails(t *testing.T) {
 	assert.Equal(t, "deleted: This resource has been deleted", err.Error())
 }
 
+func TestCreateEmbeddedSignatureWithTemplateRequestSuccess(t *testing.T) {
+	// Start our recorder
+	vcr := fixture("fixtures/docsignature/embedded_signature_with_template_request")
+	defer vcr.Stop() // Make sure recorder is stopped once done with it
+
+	client := createVcrClient(vcr)
+	templateID := "fc47b729f5611a75894680947c573f8a09fcb52c"
+	signerRole := []model.SignerRole{
+		model.SignerRole{
+			Name:  "Applicant",
+			Order: 0,
+		},
+	}
+
+	embReq := createEmbeddedSignatureWithTemplateRequest(templateID)
+	res, err := client.CreateEmbeddedSignatureWithTemplateRequest(embReq, signerRole)
+
+	assert.NotNil(t, res, "Should return response")
+	require.Nil(t, err, "Should not return error")
+
+	assert.Equal(t, "4ddb9510d013ea20655eb4fa74e078ec574910d1", res.SignatureRequestID)
+	assert.Equal(t, "awesome", res.GetSubject())
+	assert.Equal(t, true, res.GetTestMode())
+	assert.Equal(t, false, res.GetIsComplete())
+	assert.Equal(t, false, res.GetIsDeclined())
+	assert.Contains(t, res.GetTemplateIDs(), templateID)
+}
+
 // Private Functions
 
 func fixture(path string) *recorder.Recorder {
@@ -274,6 +303,37 @@ func createVcrClient(transport *recorder.Recorder) Client {
 		HTTPClient: httpClient,
 	}
 	return client
+}
+
+func createEmbeddedSignatureWithTemplateRequest(templateID string) model.EmbeddedSignatureWithTemplateRequest {
+
+	return model.EmbeddedSignatureWithTemplateRequest{
+		TestMode: true,
+		ClientID: os.Getenv("HELLOSIGN_CLIENT_ID"),
+		TemplateID: templateID,
+		Title:   "cool title",
+		Subject: "awesome",
+		Message: "cool message bro",
+		// SigningRedirectURL: "example signing redirect url",
+		Signers: []model.Signer{
+			{
+				Email: "freddy@hellosign.com",
+				Name:  "Freddy Rangel",
+			},
+		},
+		Metadata: map[string]string{
+			"no":   "cats",
+			"more": "dogs",
+		},
+		CustomFields: []model.CustomField{
+			model.CustomField{
+				Name:     "Salary",
+				Type:     "text",
+				Value:    "$1",
+				Required: true,
+			},
+		},
+	}
 }
 
 func createEmbeddedSignatureRequest() model.EmbeddedSignatureRequest {

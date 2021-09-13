@@ -22,6 +22,8 @@ type SignatureRequest struct {
 	ResponseData          []*ResponseData          `json:"response_data"`           // An array of form field objects containing the name, value, and type of each textbox or checkmark field filled in by the signers.
 	Signatures            []*Signature             `json:"signatures"`              // An array of signature objects, 1 for each signer.
 	Warnings              []*Warning               `json:"warnings"`                // An array of warning objects.
+	TemplateIDs           []string                 `json:"template_ids"`
+	ClientID              string                   `json:"client_id"`
 }
 
 // GetTestMode returns TestMode
@@ -190,4 +192,20 @@ func (s *SignatureRequest) GetWarnings() []*Warning {
 		return s.Warnings
 	}
 	return nil
+}
+
+// GetTemplateIDs returns TemplateIDs
+func (s *SignatureRequest) GetTemplateIDs() []string {
+	if s != nil {
+		return s.TemplateIDs
+	}
+	return nil
+}
+
+// GetClientID returns ClientID
+func (s *SignatureRequest) GetClientID() string {
+	if s != nil {
+		return s.ClientID
+	}
+	return ""
 }
