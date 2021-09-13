@@ -14,7 +14,7 @@ import (
 
 func TestCreateEmbeddedSignatureRequestSuccess(t *testing.T) {
 	// Start our recorder
-	vcr := fixture("fixtures/embedded_signature_request")
+	vcr := fixture("fixtures/docsignature/embedded_signature_request")
 	defer vcr.Stop() // Make sure recorder is stopped once done with it
 
 	client := createVcrClient(vcr)
@@ -34,7 +34,7 @@ func TestCreateEmbeddedSignatureRequestSuccess(t *testing.T) {
 
 func TestCreateEmbeddedSignatureRequestSuccess2(t *testing.T) {
 	// Start our recorder
-	vcr := fixture("fixtures/embedded_signature_request_more_fields")
+	vcr := fixture("fixtures/docsignature/embedded_signature_request_more_fields")
 	defer vcr.Stop() // Make sure recorder is stopped once done with it
 
 	client := createVcrClient(vcr)
@@ -54,7 +54,7 @@ func TestCreateEmbeddedSignatureRequestSuccess2(t *testing.T) {
 
 func TestCreateEmbeddedSignatureRequestMissingSigners(t *testing.T) {
 	// Start our recorder
-	vcr := fixture("fixtures/embedded_signature_request_missing_signers")
+	vcr := fixture("fixtures/docsignature/embedded_signature_request_missing_signers")
 	defer vcr.Stop() // Make sure recorder is stopped once done with it
 
 	client := createVcrClient(vcr)
@@ -71,7 +71,7 @@ func TestCreateEmbeddedSignatureRequestMissingSigners(t *testing.T) {
 }
 func TestCreateEmbeddedSignatureRequestWarnings(t *testing.T) {
 	// Start our recorder
-	vcr := fixture("fixtures/embedded_signature_request_warnings")
+	vcr := fixture("fixtures/docsignature/embedded_signature_request_warnings")
 
 	client := createVcrClient(vcr)
 
@@ -87,7 +87,7 @@ func TestCreateEmbeddedSignatureRequestWarnings(t *testing.T) {
 
 func TestCreateEmbeddedSignatureRequestFileURL(t *testing.T) {
 	// Start our recorder
-	vcr := fixture("fixtures/embedded_signature_request_file_url")
+	vcr := fixture("fixtures/docsignature/embedded_signature_request_file_url")
 	defer vcr.Stop() // Make sure recorder is stopped once done with it
 
 	client := createVcrClient(vcr)
@@ -118,7 +118,7 @@ func TestCreateEmbeddedSignatureRequestFileURL(t *testing.T) {
 }
 
 func TestGetSignatureRequest(t *testing.T) {
-	vcr := fixture("fixtures/get_signature_request")
+	vcr := fixture("fixtures/docsignature/get_signature_request")
 	defer vcr.Stop() // Make sure recorder is stopped once done with it
 
 	client := createVcrClient(vcr)
@@ -136,7 +136,7 @@ func TestGetSignatureRequest(t *testing.T) {
 }
 
 func TestGetSignatureRequests(t *testing.T) {
-	vcr := fixture("fixtures/list_signature_requests")
+	vcr := fixture("fixtures/docsignature/list_signature_requests")
 	defer vcr.Stop() // Make sure recorder is stopped once done with it
 
 	client := createVcrClient(vcr)
@@ -155,7 +155,7 @@ func TestGetSignatureRequests(t *testing.T) {
 }
 
 func TestGetEmbeddedSignURL(t *testing.T) {
-	vcr := fixture("fixtures/get_embedded_sign_url")
+	vcr := fixture("fixtures/docsignature/get_embedded_sign_url")
 	defer vcr.Stop() // Make sure recorder is stopped once done with it
 
 	client := createVcrClient(vcr)
@@ -170,7 +170,7 @@ func TestGetEmbeddedSignURL(t *testing.T) {
 }
 
 func TestSaveFile(t *testing.T) {
-	vcr := fixture("fixtures/get_pdf")
+	vcr := fixture("fixtures/docsignature/get_pdf")
 	defer vcr.Stop() // Make sure recorder is stopped once done with it
 
 	client := createVcrClient(vcr)
@@ -185,7 +185,7 @@ func TestSaveFile(t *testing.T) {
 }
 
 func TestGetPDF(t *testing.T) {
-	vcr := fixture("fixtures/get_pdf")
+	vcr := fixture("fixtures/docsignature/get_pdf")
 	defer vcr.Stop() // Make sure recorder is stopped once done with it
 
 	client := createVcrClient(vcr)
@@ -199,7 +199,7 @@ func TestGetPDF(t *testing.T) {
 }
 
 func TestCancelSignatureRequests(t *testing.T) {
-	vcr := fixture("fixtures/cancel_signature_request")
+	vcr := fixture("fixtures/docsignature/cancel_signature_request")
 	defer vcr.Stop() // Make sure recorder is stopped once done with it
 
 	client := createVcrClient(vcr)
@@ -213,7 +213,7 @@ func TestCancelSignatureRequests(t *testing.T) {
 }
 
 func TestUpdateSignatureRequestSuccess(t *testing.T) {
-	vcr := fixture("fixtures/update_signature_request")
+	vcr := fixture("fixtures/docsignature/update_signature_request")
 	defer vcr.Stop() // Make sure recorder is stopped once done with it
 
 	client := createVcrClient(vcr)
@@ -232,7 +232,7 @@ func TestUpdateSignatureRequestSuccess(t *testing.T) {
 }
 
 func TestUpdateSignatureRequestFails(t *testing.T) {
-	vcr := fixture("fixtures/update_signature_request_deleted")
+	vcr := fixture("fixtures/docsignature/update_signature_request_deleted")
 	defer vcr.Stop() // Make sure recorder is stopped once done with it
 
 	client := createVcrClient(vcr)

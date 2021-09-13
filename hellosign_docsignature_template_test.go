@@ -4,7 +4,6 @@ import (
 	"github.com/DeputyApp/hellosign-go-sdk/model"
 	"github.com/stretchr/testify/assert"
 	"testing"
-	"time"
 )
 
 func TestClient_GetEmbeddedTemplateEditURL(t *testing.T) {
@@ -49,8 +48,7 @@ func TestClient_CreateEmbeddedTemplate(t *testing.T) {
 
 	assert.NotEmpty(t, res.GetTemplateID())
 	assert.NotEmpty(t, res.GetEditURL())
-	assert.True(t, res.ExpiresAt > int32(time.Now().Unix()))
-
+	assert.NotEmpty(t, res.GetExpiresAt())
 }
 
 func TestClient_ListTemplates(t *testing.T) {
