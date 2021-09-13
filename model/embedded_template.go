@@ -3,7 +3,7 @@ package model
 type EmbeddedTemplate struct {
 	TemplateID string `json:"template_id"`
 	EditURL    string `json:"edit_url"`
-	ExpiresAt  string `json:"expires_at"`
+	ExpiresAt  int32 `json:"expires_at"`
 }
 
 // GetTemplateID returns TemplateID
@@ -23,9 +23,9 @@ func (e *EmbeddedTemplate) GetEditURL() string {
 }
 
 // GetExpiresAt returns ExpiresAt
-func (e *EmbeddedTemplate) GetExpiresAt() string {
+func (e *EmbeddedTemplate) GetExpiresAt() int32 {
 	if e != nil {
 		return e.ExpiresAt
 	}
-	return ""
+	return 0
 }

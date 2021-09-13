@@ -124,14 +124,14 @@ func (m *Client) marshalMultipartCreateEmbeddedTemplateRequest(embRequest model.
 				}
 			case "signer_roles":
 				for i, sr := range embRequest.GetSignerRoles() {
-					name, err := w.CreateFormField(fmt.Sprintf("signers[%v][name]", i))
+					name, err := w.CreateFormField(fmt.Sprintf("signer_roles[%v][name]", i))
 					if err != nil {
 						return nil, nil, err
 					}
 					name.Write([]byte(sr.GetName()))
 
 					if sr.GetOrder() != 0 {
-						order, err := w.CreateFormField(fmt.Sprintf("signers[%v][order]", i))
+						order, err := w.CreateFormField(fmt.Sprintf("signer_roles[%v][order]", i))
 						if err != nil {
 							return nil, nil, err
 						}

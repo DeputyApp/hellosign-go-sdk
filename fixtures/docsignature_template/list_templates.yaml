@@ -1,0 +1,49 @@
+---
+version: 1
+interactions:
+- request:
+    body: ""
+    form: {}
+    headers: {}
+    url: https://api.hellosign.com/v3/template/list
+    method: GET
+  response:
+    body: '{"list_info":{"page":1,"num_pages":1,"num_results":1,"page_size":20},"templates":[{"template_id":"fc47b729f5611a75894680947c573f8a09fcb52c","reusable_form_id":"fc47b729f5611a75894680947c573f8a09fcb52c","title":"Auspost
+      redirection","message":null,"is_creator":true,"is_embedded":true,"can_edit":true,"metadata":{"sent_from_domain":"app.hellosign.com","created_on_domain":"app.hellosign.com","tenantId":"deputy","employeeId":"finney"},"is_locked":true,"signer_roles":[{"name":"Applicant","order":null}],"cc_roles":[],"documents":[{"index":0,"name":"ApplicationToRedirectMailForm.pdf","field_groups":[],"custom_fields":[{"name":"vaccinated?","type":"checkbox","signer":null,"x":310,"y":132,"width":18,"height":18,"required":false,"api_id":"12340bad-566d-4641-a988-acf790154ed2","group":null,"fontSize":12},{"name":"Salary","type":"text","signer":null,"x":671,"y":201,"width":72,"height":14,"required":false,"api_id":"fee3102d-6ce5-41af-8bef-6214d708a104","group":null,"fontSize":"12px","avg_text_length":{"num_lines":1,"num_chars_per_line":19},"isMultiline":false,"originalFontSize":12,"fontFamily":"arial"}],"form_fields":[{"name":"FullName1","type":"text","signer":"1","x":546,"y":795,"width":72,"height":14,"required":true,"api_id":"b18516f7-c43a-44d0-813d-639d471eec84","group":null,"fontSize":"12px","avg_text_length":{"num_lines":1,"num_chars_per_line":19},"isMultiline":false,"originalFontSize":12,"fontFamily":"arial"},{"name":"Checkbox1","type":"checkbox","signer":"1","x":781,"y":906,"width":18,"height":18,"required":true,"api_id":"927b638d-7a0a-4301-856a-faa73581cf0d","group":null,"fontSize":12},{"name":"Checkbox2","type":"checkbox","signer":"1","x":781,"y":934,"width":18,"height":18,"required":true,"api_id":"5688b9a9-28b7-4fe6-ab57-cd3259d3fac6","group":null,"fontSize":12},{"name":"Textbox1","type":"text","signer":"1","x":522,"y":1043,"width":72,"height":14,"required":true,"api_id":"be05895c-cb3f-4f4d-9c2a-de02d29a0ae1","group":null,"fontSize":"12px","avg_text_length":{"num_lines":1,"num_chars_per_line":19},"isMultiline":false,"originalFontSize":12,"fontFamily":"arial"},{"name":"Signature1","type":"signature","signer":"1","x":467,"y":1306,"width":108,"height":27,"required":true,"api_id":"47cfbe45-ffc4-4c5d-90f4-1351b1f3215b","group":null,"fontSize":12},{"name":"DateSigned1","type":"date_signed","signer":"1","x":611,"y":1321,"width":103,"height":18,"required":true,"api_id":"266814aa-806f-44ef-99d5-749da02ea18f","group":null,"fontSize":"12px"}]}],"custom_fields":[{"name":"vaccinated?","type":"checkbox","signer":null,"x":310,"y":132,"width":18,"height":18,"required":false,"api_id":"12340bad-566d-4641-a988-acf790154ed2","group":null,"fontSize":12},{"name":"Salary","type":"text","signer":null,"x":671,"y":201,"width":72,"height":14,"required":false,"api_id":"fee3102d-6ce5-41af-8bef-6214d708a104","group":null,"fontSize":"12px","avg_text_length":{"num_lines":1,"num_chars_per_line":19},"isMultiline":false,"originalFontSize":12,"fontFamily":"arial"}],"named_form_fields":[{"name":"FullName1","type":"text","signer":"1","x":546,"y":795,"width":72,"height":14,"required":true,"api_id":"b18516f7-c43a-44d0-813d-639d471eec84","group":null,"fontSize":"12px","avg_text_length":{"num_lines":1,"num_chars_per_line":19},"isMultiline":false,"originalFontSize":12,"fontFamily":"arial"},{"name":"Checkbox1","type":"checkbox","signer":"1","x":781,"y":906,"width":18,"height":18,"required":true,"api_id":"927b638d-7a0a-4301-856a-faa73581cf0d","group":null,"fontSize":12},{"name":"Checkbox2","type":"checkbox","signer":"1","x":781,"y":934,"width":18,"height":18,"required":true,"api_id":"5688b9a9-28b7-4fe6-ab57-cd3259d3fac6","group":null,"fontSize":12},{"name":"Textbox1","type":"text","signer":"1","x":522,"y":1043,"width":72,"height":14,"required":true,"api_id":"be05895c-cb3f-4f4d-9c2a-de02d29a0ae1","group":null,"fontSize":"12px","avg_text_length":{"num_lines":1,"num_chars_per_line":19},"isMultiline":false,"originalFontSize":12,"fontFamily":"arial"},{"name":"Signature1","type":"signature","signer":"1","x":467,"y":1306,"width":108,"height":27,"required":true,"api_id":"47cfbe45-ffc4-4c5d-90f4-1351b1f3215b","group":null,"fontSize":12},{"name":"DateSigned1","type":"date_signed","signer":"1","x":611,"y":1321,"width":103,"height":18,"required":true,"api_id":"266814aa-806f-44ef-99d5-749da02ea18f","group":null,"fontSize":"12px"}],"accounts":[{"account_id":"a56783e678b6063c4f38180736eff28c74acb917","email_address":"primba@deputy.com","is_locked":false,"is_paid_hs":false,"is_paid_hf":false,"quotas":{"templates_left":0,"documents_left":3,"api_signature_requests_left":0}}]}]}'
+    headers:
+      Access-Control-Allow-Headers:
+      - Authorization, Origin, X-Requested-With, Content-Type, Accept
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Mon, 13 Sep 2021 04:43:57 GMT
+      P3p:
+      - CP="NOP3PPOLICY"
+      Server:
+      - Apache
+      Set-Cookie:
+      - AWSALB=Pj3QH/6q5wIKa1U+Vhddl3uFKJanEwAYoV2v90qRZyP8wfPJ3tx7Cy216EVxC1lu5OSLfehdFbI5hbva/+phVaZz0XevQYhvq19U8a2gntrA36/cC0Ndxo4lrgcj;
+        Expires=Mon, 20 Sep 2021 04:43:57 GMT; Path=/
+      - AWSALBCORS=Pj3QH/6q5wIKa1U+Vhddl3uFKJanEwAYoV2v90qRZyP8wfPJ3tx7Cy216EVxC1lu5OSLfehdFbI5hbva/+phVaZz0XevQYhvq19U8a2gntrA36/cC0Ndxo4lrgcj;
+        Expires=Mon, 20 Sep 2021 04:43:57 GMT; Path=/; SameSite=None; Secure
+      Strict-Transport-Security:
+      - max-age=31536000
+      User-Agent:
+      - HelloSign API
+      Vary:
+      - Accept-Encoding
+      X-Ratelimit-Limit:
+      - "100"
+      X-Ratelimit-Limit-Remaining:
+      - "99"
+      X-Ratelimit-Reset:
+      - "1631508237"
+    status: 200 OK
+    code: 200
+    duration: ""

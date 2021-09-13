@@ -1,0 +1,48 @@
+---
+version: 1
+interactions:
+- request:
+    body: ""
+    form: {}
+    headers: {}
+    url: https://api.hellosign.com/v3/template/delete/9fe8fb79ecec08f61c9120912eba738c9011ebe1
+    method: POST
+  response:
+    body: '{"error":{"error_msg":"Template not found","error_name":"not_found"}}'
+    headers:
+      Access-Control-Allow-Headers:
+      - Authorization, Origin, X-Requested-With, Content-Type, Accept
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Connection:
+      - keep-alive
+      Content-Length:
+      - "69"
+      Content-Type:
+      - application/json
+      Date:
+      - Mon, 13 Sep 2021 04:45:47 GMT
+      P3p:
+      - CP="NOP3PPOLICY"
+      Server:
+      - Apache
+      Set-Cookie:
+      - AWSALB=t/1ttNVH3lXPs4QWA0mgezsD/vZK0Q04oZiUKUq0zrg3ZXzGUIXy+wRxbeOdVMKaRJ0/HCOroBVSXINGUrG37th8GOmWhQT/wYYQipTXZ4436IBR7uYhl9GpOH+M;
+        Expires=Mon, 20 Sep 2021 04:45:47 GMT; Path=/
+      - AWSALBCORS=t/1ttNVH3lXPs4QWA0mgezsD/vZK0Q04oZiUKUq0zrg3ZXzGUIXy+wRxbeOdVMKaRJ0/HCOroBVSXINGUrG37th8GOmWhQT/wYYQipTXZ4436IBR7uYhl9GpOH+M;
+        Expires=Mon, 20 Sep 2021 04:45:47 GMT; Path=/; SameSite=None; Secure
+      Strict-Transport-Security:
+      - max-age=31536000
+      User-Agent:
+      - HelloSign API
+      X-Ratelimit-Limit:
+      - "100"
+      X-Ratelimit-Limit-Remaining:
+      - "99"
+      X-Ratelimit-Reset:
+      - "1631508347"
+    status: 404 Not Found
+    code: 404
+    duration: ""
