@@ -1,11 +1,11 @@
 package model
 
 type Document struct {
-	Name         string               `json:"name"`
-	Index        int                  `json:"index"`
-	FieldGroups  []DocumentFieldGroup `json:"field_groups"`
-	FormFields   []DocumentFormField  `json:"form_fields"`
-	CustomFields []CustomField        `json:"custom_fields"`
+	Name         string                      `json:"name"`
+	Index        int                         `json:"index"`
+	FieldGroups  []DocumentFieldGroup        `json:"field_groups"`
+	FormFields   []TemplateDocumentFormField `json:"form_fields"`
+	CustomFields []CustomField               `json:"custom_fields"`
 }
 
 // GetName returns Name
@@ -36,7 +36,7 @@ func (d *Document) GetFieldGroups() []DocumentFieldGroup {
 }
 
 // GetFormFields returns FormFields
-func (d *Document) GetFormFields() []DocumentFormField {
+func (d *Document) GetFormFields() []TemplateDocumentFormField {
 	if d != nil {
 		return d.FormFields
 	}
