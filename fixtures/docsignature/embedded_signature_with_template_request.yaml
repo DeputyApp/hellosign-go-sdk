@@ -1,0 +1,65 @@
+---
+version: 1
+interactions:
+- request:
+    body: "--a95335aa131afb108d660e74b053edd0d8426cd2411df796a3a446e9591e\r\nContent-Disposition:
+      form-data; name=\"test_mode\"\r\n\r\n1\r\n--a95335aa131afb108d660e74b053edd0d8426cd2411df796a3a446e9591e\r\nContent-Disposition:
+      form-data; name=\"client_id\"\r\n\r\n4ea503a2d19789c3a07407501e5818c0\r\n--a95335aa131afb108d660e74b053edd0d8426cd2411df796a3a446e9591e\r\nContent-Disposition:
+      form-data; name=\"title\"\r\n\r\ncool title\r\n--a95335aa131afb108d660e74b053edd0d8426cd2411df796a3a446e9591e\r\nContent-Disposition:
+      form-data; name=\"subject\"\r\n\r\nawesome\r\n--a95335aa131afb108d660e74b053edd0d8426cd2411df796a3a446e9591e\r\nContent-Disposition:
+      form-data; name=\"message\"\r\n\r\ncool message bro\r\n--a95335aa131afb108d660e74b053edd0d8426cd2411df796a3a446e9591e\r\nContent-Disposition:
+      form-data; name=\"signers[Applicant][email_address]\"\r\n\r\nfreddy@hellosign.com\r\n--a95335aa131afb108d660e74b053edd0d8426cd2411df796a3a446e9591e\r\nContent-Disposition:
+      form-data; name=\"signers[Applicant][name]\"\r\n\r\nFreddy Rangel\r\n--a95335aa131afb108d660e74b053edd0d8426cd2411df796a3a446e9591e\r\nContent-Disposition:
+      form-data; name=\"metadata[no]\"\r\n\r\ncats\r\n--a95335aa131afb108d660e74b053edd0d8426cd2411df796a3a446e9591e\r\nContent-Disposition:
+      form-data; name=\"metadata[more]\"\r\n\r\ndogs\r\n--a95335aa131afb108d660e74b053edd0d8426cd2411df796a3a446e9591e\r\nContent-Disposition:
+      form-data; name=\"template_id\"\r\n\r\nfc47b729f5611a75894680947c573f8a09fcb52c\r\n--a95335aa131afb108d660e74b053edd0d8426cd2411df796a3a446e9591e--\r\n"
+    form: {}
+    headers:
+      Content-Type:
+      - multipart/form-data; boundary=a95335aa131afb108d660e74b053edd0d8426cd2411df796a3a446e9591e
+    url: https://api.hellosign.com/v3/signature_request/create_embedded_with_template
+    method: POST
+  response:
+    body: '{"signature_request":{"signature_request_id":"4ddb9510d013ea20655eb4fa74e078ec574910d1","test_mode":true,"title":"cool
+      title","original_title":"awesome","subject":"awesome","message":"cool message
+      bro","metadata":{"no":"cats","more":"dogs"},"created_at":1631536303,"is_complete":false,"is_declined":false,"has_error":false,"custom_fields":[{"name":"vaccinated?","type":"checkbox","required":null,"api_id":"12340bad-566d-4641-a988-acf790154ed2","editor":null,"value":false},{"name":"Salary","type":"text","required":null,"api_id":"fee3102d-6ce5-41af-8bef-6214d708a104","editor":null,"value":""},{"name":"FullName1","type":"text","required":true,"api_id":"b18516f7-c43a-44d0-813d-639d471eec84","editor":null,"value":""},{"name":"Checkbox1","type":"checkbox","required":true,"api_id":"927b638d-7a0a-4301-856a-faa73581cf0d","editor":null,"value":false},{"name":"Checkbox2","type":"checkbox","required":true,"api_id":"5688b9a9-28b7-4fe6-ab57-cd3259d3fac6","editor":null,"value":false},{"name":"Textbox1","type":"text","required":true,"api_id":"be05895c-cb3f-4f4d-9c2a-de02d29a0ae1","editor":null,"value":""}],"response_data":[],"signing_url":null,"signing_redirect_url":null,"final_copy_uri":"\/v3\/signature_request\/final_copy\/4ddb9510d013ea20655eb4fa74e078ec574910d1","files_url":"https:\/\/api.hellosign.com\/v3\/signature_request\/files\/4ddb9510d013ea20655eb4fa74e078ec574910d1","details_url":"https:\/\/app.hellosign.com\/home\/manage?guid=4ddb9510d013ea20655eb4fa74e078ec574910d1","requester_email_address":"primba@deputy.com","signatures":[{"signature_id":"ebd432e06170118f54e56aa7770ba57f","has_pin":false,"has_sms_auth":false,"signer_email_address":"freddy@hellosign.com","signer_name":"Freddy
+      Rangel","signer_role":"Applicant","order":null,"status_code":"awaiting_signature","signed_at":null,"last_viewed_at":null,"last_reminded_at":null,"error":null}],"cc_email_addresses":[],"template_ids":["fc47b729f5611a75894680947c573f8a09fcb52c"],"client_id":"4ea503a2d19789c3a07407501e5818c0"},"warnings":[{"warning_msg":"No
+      data provided for custom field vaccinated?, will default to false.","warning_name":"parameter_missing"},{"warning_msg":"No
+      data provided for custom field Salary, will default to empty.","warning_name":"parameter_missing"}]}'
+    headers:
+      Access-Control-Allow-Headers:
+      - Authorization, Origin, X-Requested-With, Content-Type, Accept
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Mon, 13 Sep 2021 12:31:43 GMT
+      P3p:
+      - CP="NOP3PPOLICY"
+      Server:
+      - Apache
+      Set-Cookie:
+      - AWSALB=MtB+f4sV2BQ2TKnMe+YCGG/3q+bkbnK68LI9EiG8OrbIc1JtSDqOXcBKNRp6dHvHdfxKsVL9qZXnmPXgrUOcT3TiXLCHxN1cDvcb4W8LhLNs72e+ua1uOtxMcdu8;
+        Expires=Mon, 20 Sep 2021 12:31:43 GMT; Path=/
+      - AWSALBCORS=MtB+f4sV2BQ2TKnMe+YCGG/3q+bkbnK68LI9EiG8OrbIc1JtSDqOXcBKNRp6dHvHdfxKsVL9qZXnmPXgrUOcT3TiXLCHxN1cDvcb4W8LhLNs72e+ua1uOtxMcdu8;
+        Expires=Mon, 20 Sep 2021 12:31:43 GMT; Path=/; SameSite=None; Secure
+      Strict-Transport-Security:
+      - max-age=31536000
+      User-Agent:
+      - HelloSign API
+      Vary:
+      - Accept-Encoding
+      X-Ratelimit-Limit:
+      - "10"
+      X-Ratelimit-Limit-Remaining:
+      - "9"
+      X-Ratelimit-Reset:
+      - "1631536309"
+    status: 200 OK
+    code: 200
+    duration: ""
