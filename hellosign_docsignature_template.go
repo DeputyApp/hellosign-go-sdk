@@ -13,6 +13,18 @@ import (
 	"strconv"
 )
 
+const (
+	ClientIDKey    string = "client_id"
+	TestModeKey    string = "test_mode"
+	TitleKey       string = "title"
+	SubjectKey     string = "subject"
+	MessageKey     string = "message"
+	ShowPreviewKey string = "show_preview"
+	MetadataKey    string = "metadata"
+	SignerRolesKey string = "signer_roles"
+	FileURLKey     string = "file_url"
+)
+
 // CreateEmbeddedTemplate creates a new embedded Template
 func (m *Client) CreateEmbeddedTemplate(req model.CreateEmbeddedTemplateRequest) (*model.EmbeddedTemplate, error) {
 	params, writer, err := m.marshalMultipartCreateEmbeddedTemplateRequest(req)
@@ -95,93 +107,95 @@ func (m *Client) marshalMultipartCreateEmbeddedTemplateRequest(embRequest model.
 		f := valueField.Interface()
 		val := reflect.ValueOf(f)
 		field := structType.Field(i)
-		fieldTag := field.Tag.Get("form_field")
+		fieldTag := field.Tag.Get(FormFieldKey)
 
 		switch val.Kind() {
 		case reflect.Map:
-			for k, v := range embRequest.GetMetadata() {
-				formField, err := w.CreateFormField(fmt.Sprintf("metadata[%v]", k))
-				if err != nil {
-					return nil, nil, err
+			if fieldTag == MetadataKey {
+				for k, v := range embRequest.GetMetadata() {
+					formField, err := w.CreateFormField(fmt.Sprintf("%s[%v]", MetadataKey, k))
+					if err != nil {
+						return nil, nil, err
+					}
+					formField.Write([]byte(v))
 				}
-				formField.Write([]byte(v))
 			}
 		case reflect.Slice:
 			switch fieldTag {
-			case "test_mode":
-				tm, err := w.CreateFormField("test_mode")
+			case TestModeKey:
+				tm, err := w.CreateFormField(TestModeKey)
 				if err != nil {
 					return nil, nil, err
 				}
 				tm.Write([]byte(m.boolToIntString(embRequest.GetTestMode())))
-			case "client_id":
-				c, err := w.CreateFormField("client_id")
+			case ClientIDKey:
+				c, err := w.CreateFormField(ClientIDKey)
 				if err != nil {
 					return nil, nil, err
 				}
 				if embRequest.GetClientID() != "" {
 					c.Write([]byte(embRequest.GetClientID()))
 				}
-			case "signer_roles":
+			case SignerRolesKey:
 				for i, sr := range embRequest.GetSignerRoles() {
-					name, err := w.CreateFormField(fmt.Sprintf("signer_roles[%v][name]", i))
+					name, err := w.CreateFormField(fmt.Sprintf("%s[%v][name]", SignerRolesKey, i))
 					if err != nil {
 						return nil, nil, err
 					}
 					name.Write([]byte(sr.GetName()))
 
 					if sr.GetOrder() != 0 {
-						order, err := w.CreateFormField(fmt.Sprintf("signer_roles[%v][order]", i))
+						order, err := w.CreateFormField(fmt.Sprintf("%s[%v][order]", SignerRolesKey, i))
 						if err != nil {
 							return nil, nil, err
 						}
 						order.Write([]byte(strconv.Itoa(sr.GetOrder())))
 					}
 				}
-			case "file":
+			case FileKey:
 				for i, path := range embRequest.GetFile() {
 					file, _ := os.Open(path)
 
-					formField, err := w.CreateFormFile(fmt.Sprintf("file[%v]", i), file.Name())
+					formField, err := w.CreateFormFile(fmt.Sprintf("%s[%v]", FileKey, i), file.Name())
 					if err != nil {
 						return nil, nil, err
 					}
 					_, err = io.Copy(formField, file)
 				}
-			case "file_url":
+			case FileURLKey:
 				for i, fileURL := range embRequest.GetFileURL() {
-					formField, err := w.CreateFormField(fmt.Sprintf("file_url[%v]", i))
+					formField, err := w.CreateFormField(fmt.Sprintf("%s[%v]", FileURLKey, i))
 					if err != nil {
 						return nil, nil, err
 					}
 					formField.Write([]byte(fileURL))
 				}
-			case "title":
-				f, err := w.CreateFormField("title")
+			case TitleKey:
+				f, err := w.CreateFormField(TitleKey)
 				if err != nil {
 					return nil, nil, err
 				}
 				if embRequest.GetTitle() != "" {
 					f.Write([]byte(embRequest.GetTitle()))
 				}
-			case "subject":
-				f, err := w.CreateFormField("subject")
+			case SubjectKey:
+				f, err := w.CreateFormField(SubjectKey)
 				if err != nil {
 					return nil, nil, err
 				}
 				if embRequest.GetSubject() != "" {
 					f.Write([]byte(embRequest.GetSubject()))
 				}
-			case "message":
-				f, err := w.CreateFormField("message")
+			case MessageKey:
+				f, err := w.CreateFormField(MessageKey)
 				if err != nil {
 					return nil, nil, err
 				}
 				if embRequest.GetMessage() != "" {
 					f.Write([]byte(embRequest.GetMessage()))
 				}
-			case "show_preview":
-				tm, err := w.CreateFormField("show_preview")
+			case ShowPreviewKey:
+				tm, err := w.CreateFormField(ShowPreviewKey)
 				if err != nil {
 					return nil, nil, err
 				}

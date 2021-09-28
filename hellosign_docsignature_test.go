@@ -270,7 +270,7 @@ func TestCreateEmbeddedSignatureWithTemplateRequestSuccess(t *testing.T) {
 	assert.NotNil(t, res, "Should return response")
 	require.Nil(t, err, "Should not return error")
 
-	assert.Equal(t, "4ddb9510d013ea20655eb4fa74e078ec574910d1", res.SignatureRequestID)
+	assert.Equal(t, "6a33f3b9ea80371a687c0ad34548f3d3e13b6a46", res.GetSignatureRequestID())
 	assert.Equal(t, "awesome", res.GetSubject())
 	assert.Equal(t, true, res.GetTestMode())
 	assert.Equal(t, false, res.GetIsComplete())
@@ -308,12 +308,12 @@ func createVcrClient(transport *recorder.Recorder) Client {
 func createEmbeddedSignatureWithTemplateRequest(templateID string) model.EmbeddedSignatureWithTemplateRequest {
 
 	return model.EmbeddedSignatureWithTemplateRequest{
-		TestMode: true,
-		ClientID: os.Getenv("HELLOSIGN_CLIENT_ID"),
+		TestMode:   true,
+		ClientID:   os.Getenv("HELLOSIGN_CLIENT_ID"),
 		TemplateID: templateID,
-		Title:   "cool title",
-		Subject: "awesome",
-		Message: "cool message bro",
+		Title:      "cool title",
+		Subject:    "awesome",
+		Message:    "cool message bro",
 		// SigningRedirectURL: "example signing redirect url",
 		Signers: []model.Signer{
 			{

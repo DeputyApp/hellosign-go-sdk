@@ -27,7 +27,7 @@ func (m *Client) CreateNewApiApp(req model.CreateApiAppRequest) (*model.APIApp, 
 		f := valueField.Interface()
 		val := reflect.ValueOf(f)
 		field := structType.Field(i)
-		fieldTag := field.Tag.Get("form_field")
+		fieldTag := field.Tag.Get(FormFieldKey)
 
 		switch val.Kind() {
 		default:
