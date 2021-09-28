@@ -3,16 +3,17 @@ package model
 // CreateEmbeddedTemplateRequest contains the request parameters for creating an embedded template draft
 // Note: skip_me_now, cc_roles, attachments, allow_reassign, allow_css, editor_options, field_options, merge_field are unused and thus excluded
 type CreateEmbeddedTemplateRequest struct {
-	TestMode    bool              `form_field:"test_mode"`
-	ClientID    string            `form_field:"client_id"`
-	FileURL     []string          `form_field:"file_url"`
-	File        []string          `form_field:"file"`
-	Title       string            `form_field:"title"`
-	Subject     string            `form_field:"subject"`
-	Message     string            `form_field:"message"`
-	SignerRoles []SignerRole      `form_field:"signer_roles"`
-	Metadata    map[string]string `form_field:"metadata"`
-	ShowPreview bool              `form_field:"show_preview"`
+	TestMode     bool              `form_field:"test_mode"`
+	ClientID     string            `form_field:"client_id"`
+	FileURL      []string          `form_field:"file_url"`
+	File         []string          `form_field:"file"`
+	Title        string            `form_field:"title"`
+	Subject      string            `form_field:"subject"`
+	Message      string            `form_field:"message"`
+	SignerRoles  []SignerRole      `form_field:"signer_roles"`
+	Metadata     map[string]string `form_field:"metadata"`
+	ShowPreview  bool              `form_field:"show_preview"`
+	CustomFields []CustomField `form_field:"merge_fields"`
 }
 
 // GetTestMode returns TestMode
@@ -87,9 +88,18 @@ func (e *CreateEmbeddedTemplateRequest) GetMetadata() map[string]string {
 	return nil
 }
 
+// IsShowingPreview returns ShowPreview
 func (e *CreateEmbeddedTemplateRequest) IsShowingPreview() bool {
 	if e != nil {
 		return e.ShowPreview
 	}
 	return false
+}
+
+// GetCustomFields returns CustomFields
+func (e *CreateEmbeddedTemplateRequest) GetCustomFields() []CustomField {
+	if e != nil {
+		return e.CustomFields
+	}
+	return nil
 }

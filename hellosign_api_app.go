@@ -27,7 +27,7 @@ func (m *Client) CreateNewApiApp(req model.CreateApiAppRequest) (*model.APIApp, 
 		f := valueField.Interface()
 		val := reflect.ValueOf(f)
 		field := structType.Field(i)
-		fieldTag := field.Tag.Get("form_field")
+		fieldTag := field.Tag.Get(FormFieldKey)
 
 		switch val.Kind() {
 		default:
@@ -42,7 +42,7 @@ func (m *Client) CreateNewApiApp(req model.CreateApiAppRequest) (*model.APIApp, 
 					if err != nil {
 						return nil, err
 					}
-					r, err := io.Copy(formField, file)
+					_, err = io.Copy(formField, file)
 				} else {
 					formField, err := writer.CreateFormField(fieldTag)
 					if err != nil {

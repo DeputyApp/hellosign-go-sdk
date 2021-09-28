@@ -3,13 +3,13 @@ version: 1
 interactions:
 - request:
     body: !!binary |
-      LS0zZjcwMzAyMzg0YzcyYzIwNzQ5MDQwNjZlYmU3OTdlM2YzMmFiZGE0OWEwYmMxZTdkYz
-      k3ODI0YzkyZWENCkNvbnRlbnQtRGlzcG9zaXRpb246IGZvcm0tZGF0YTsgbmFtZT0idGVz
-      dF9tb2RlIg0KDQoxDQotLTNmNzAzMDIzODRjNzJjMjA3NDkwNDA2NmViZTc5N2UzZjMyYW
-      JkYTQ5YTBiYzFlN2RjOTc4MjRjOTJlYQ0KQ29udGVudC1EaXNwb3NpdGlvbjogZm9ybS1k
-      YXRhOyBuYW1lPSJjbGllbnRfaWQiDQoNCjRlYTUwM2EyZDE5Nzg5YzNhMDc0MDc1MDFlNT
-      gxOGMwDQotLTNmNzAzMDIzODRjNzJjMjA3NDkwNDA2NmViZTc5N2UzZjMyYWJkYTQ5YTBi
-      YzFlN2RjOTc4MjRjOTJlYQ0KQ29udGVudC1EaXNwb3NpdGlvbjogZm9ybS1kYXRhOyBuYW
+      LS1jZTMxMjgxYWM4ZmQ1NDJiOTZlZDJiYTgxZmQyYzUyMmI0MTFkNzM5ZDFlYTA2YjQzNz
+      M0Nzg3M2VjOTYNCkNvbnRlbnQtRGlzcG9zaXRpb246IGZvcm0tZGF0YTsgbmFtZT0idGVz
+      dF9tb2RlIg0KDQoxDQotLWNlMzEyODFhYzhmZDU0MmI5NmVkMmJhODFmZDJjNTIyYjQxMW
+      Q3MzlkMWVhMDZiNDM3MzQ3ODczZWM5Ng0KQ29udGVudC1EaXNwb3NpdGlvbjogZm9ybS1k
+      YXRhOyBuYW1lPSJjbGllbnRfaWQiDQoNCmVmM2ExOTJjMjEyODFkNzk3MDNlYTA1NzRkYT
+      U3OWE5DQotLWNlMzEyODFhYzhmZDU0MmI5NmVkMmJhODFmZDJjNTIyYjQxMWQ3MzlkMWVh
+      MDZiNDM3MzQ3ODczZWM5Ng0KQ29udGVudC1EaXNwb3NpdGlvbjogZm9ybS1kYXRhOyBuYW
       1lPSJmaWxlWzBdIjsgZmlsZW5hbWU9ImZpeHR1cmVzL29mZmVyX2xldHRlci5wZGYiDQpD
       b250ZW50LVR5cGU6IGFwcGxpY2F0aW9uL29jdGV0LXN0cmVhbQ0KDQolUERGLTEuNAol+/
       z9/go0IDAgb2JqCjw8Ci9QYXJlbnQgMyAwIFIKL1Jlc291cmNlcyA1IDAgUgovTWVkaWFC
@@ -1336,28 +1336,28 @@ interactions:
       PDwKL1Jvb3QgMSAwIFIKL0lEIFsoNmUxZjRlMzUtMDYzYS00NzVhLTkyZTMtOTdmMDk5MD
       c5ZjcyKSAoNmUxZjRlMzUtMDYzYS00NzVhLTkyZTMtOTdmMDk5MDc5ZjcyKV0KL0luZm8g
       MiAwIFIKL1NpemUgMzIKL1ByZXYgNTk2MDUgPj4Kc3RhcnR4cmVmCjY5MjM4CiUlRU9GCg
-      0KLS0zZjcwMzAyMzg0YzcyYzIwNzQ5MDQwNjZlYmU3OTdlM2YzMmFiZGE0OWEwYmMxZTdk
-      Yzk3ODI0YzkyZWENCkNvbnRlbnQtRGlzcG9zaXRpb246IGZvcm0tZGF0YTsgbmFtZT0idG
-      l0bGUiDQoNCk9mZmVyIExldHRlcg0KLS0zZjcwMzAyMzg0YzcyYzIwNzQ5MDQwNjZlYmU3
-      OTdlM2YzMmFiZGE0OWEwYmMxZTdkYzk3ODI0YzkyZWENCkNvbnRlbnQtRGlzcG9zaXRpb2
+      0KLS1jZTMxMjgxYWM4ZmQ1NDJiOTZlZDJiYTgxZmQyYzUyMmI0MTFkNzM5ZDFlYTA2YjQz
+      NzM0Nzg3M2VjOTYNCkNvbnRlbnQtRGlzcG9zaXRpb246IGZvcm0tZGF0YTsgbmFtZT0idG
+      l0bGUiDQoNCk9mZmVyIExldHRlcg0KLS1jZTMxMjgxYWM4ZmQ1NDJiOTZlZDJiYTgxZmQy
+      YzUyMmI0MTFkNzM5ZDFlYTA2YjQzNzM0Nzg3M2VjOTYNCkNvbnRlbnQtRGlzcG9zaXRpb2
       46IGZvcm0tZGF0YTsgbmFtZT0ic2lnbmVyX3JvbGVzWzBdW25hbWVdIg0KDQpFbXBsb3ll
-      ZQ0KLS0zZjcwMzAyMzg0YzcyYzIwNzQ5MDQwNjZlYmU3OTdlM2YzMmFiZGE0OWEwYmMxZT
-      dkYzk3ODI0YzkyZWENCkNvbnRlbnQtRGlzcG9zaXRpb246IGZvcm0tZGF0YTsgbmFtZT0i
-      bWV0YWRhdGFbbm9dIg0KDQpjYXRzDQotLTNmNzAzMDIzODRjNzJjMjA3NDkwNDA2NmViZT
-      c5N2UzZjMyYWJkYTQ5YTBiYzFlN2RjOTc4MjRjOTJlYQ0KQ29udGVudC1EaXNwb3NpdGlv
-      bjogZm9ybS1kYXRhOyBuYW1lPSJtZXRhZGF0YVttb3JlXSINCg0KZG9ncw0KLS0zZjcwMz
-      AyMzg0YzcyYzIwNzQ5MDQwNjZlYmU3OTdlM2YzMmFiZGE0OWEwYmMxZTdkYzk3ODI0Yzky
-      ZWENCkNvbnRlbnQtRGlzcG9zaXRpb246IGZvcm0tZGF0YTsgbmFtZT0ic2hvd19wcmV2aW
-      V3Ig0KDQoxDQotLTNmNzAzMDIzODRjNzJjMjA3NDkwNDA2NmViZTc5N2UzZjMyYWJkYTQ5
-      YTBiYzFlN2RjOTc4MjRjOTJlYS0tDQo=
+      ZQ0KLS1jZTMxMjgxYWM4ZmQ1NDJiOTZlZDJiYTgxZmQyYzUyMmI0MTFkNzM5ZDFlYTA2Yj
+      QzNzM0Nzg3M2VjOTYNCkNvbnRlbnQtRGlzcG9zaXRpb246IGZvcm0tZGF0YTsgbmFtZT0i
+      bWV0YWRhdGFbbW9yZV0iDQoNCmRvZ3MNCi0tY2UzMTI4MWFjOGZkNTQyYjk2ZWQyYmE4MW
+      ZkMmM1MjJiNDExZDczOWQxZWEwNmI0MzczNDc4NzNlYzk2DQpDb250ZW50LURpc3Bvc2l0
+      aW9uOiBmb3JtLWRhdGE7IG5hbWU9Im1ldGFkYXRhW25vXSINCg0KY2F0cw0KLS1jZTMxMj
+      gxYWM4ZmQ1NDJiOTZlZDJiYTgxZmQyYzUyMmI0MTFkNzM5ZDFlYTA2YjQzNzM0Nzg3M2Vj
+      OTYNCkNvbnRlbnQtRGlzcG9zaXRpb246IGZvcm0tZGF0YTsgbmFtZT0ic2hvd19wcmV2aW
+      V3Ig0KDQoxDQotLWNlMzEyODFhYzhmZDU0MmI5NmVkMmJhODFmZDJjNTIyYjQxMWQ3Mzlk
+      MWVhMDZiNDM3MzQ3ODczZWM5Ni0tDQo=
     form: {}
     headers:
       Content-Type:
-      - multipart/form-data; boundary=3f70302384c72c2074904066ebe797e3f32abda49a0bc1e7dc97824c92ea
+      - multipart/form-data; boundary=ce31281ac8fd542b96ed2ba81fd2c522b411d739d1ea06b437347873ec96
     url: https://api.hellosign.com/v3/template/create_embedded_draft
     method: POST
   response:
-    body: '{"template":{"template_id":"9fe8fb79ecec08f61c9120912eba738c9011ebe1","edit_url":"https:\/\/embedded.hellosign.com\/prep-and-send\/embedded-template?cached_params_token=1950422b0262bd3b92466f7a5b9e310c","expires_at":1631511041},"warnings":[{"warning_msg":"The
+    body: '{"template":{"template_id":"4fd29f430e06aa5a1af540e8ab845ca2df636005","edit_url":"https:\/\/embedded.hellosign.com\/prep-and-send\/embedded-template?cached_params_token=3303157035997b2bad607b44cd82337c","expires_at":1632829471},"warnings":[{"warning_msg":"The
       created template will be locked. Upgrade your account to use more templates.","warning_name":"need_credit"}]}'
     headers:
       Access-Control-Allow-Headers:
@@ -1371,16 +1371,16 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Mon, 13 Sep 2021 04:30:41 GMT
+      - Tue, 28 Sep 2021 10:44:31 GMT
       P3p:
       - CP="NOP3PPOLICY"
       Server:
       - Apache
       Set-Cookie:
-      - AWSALB=5YjyuDRLPXvKSndxFHQTTER0nLoZxMMHSWDbnOK/3dNqsoJc54MhiN+SWBFhf12K7AuGFWpVgiJrm14P9ZU2eBLuozuekjeQsnQFFcl/FM5k+D17cUBIqQhhbrIp;
-        Expires=Mon, 20 Sep 2021 04:30:40 GMT; Path=/
-      - AWSALBCORS=5YjyuDRLPXvKSndxFHQTTER0nLoZxMMHSWDbnOK/3dNqsoJc54MhiN+SWBFhf12K7AuGFWpVgiJrm14P9ZU2eBLuozuekjeQsnQFFcl/FM5k+D17cUBIqQhhbrIp;
-        Expires=Mon, 20 Sep 2021 04:30:40 GMT; Path=/; SameSite=None; Secure
+      - AWSALB=JPlzuPyiz8L9qdujkfuPsCDXLaVPOgj2it1nlD4l2mGFslnISKkBGUFj90bi+5hucMxIMnHeOnMnyP8kMtaiMbrgfBYt5KtwABvSsIuvR+xZAy5BwpOToZqZT6ri;
+        Expires=Tue, 05 Oct 2021 10:44:29 GMT; Path=/
+      - AWSALBCORS=JPlzuPyiz8L9qdujkfuPsCDXLaVPOgj2it1nlD4l2mGFslnISKkBGUFj90bi+5hucMxIMnHeOnMnyP8kMtaiMbrgfBYt5KtwABvSsIuvR+xZAy5BwpOToZqZT6ri;
+        Expires=Tue, 05 Oct 2021 10:44:29 GMT; Path=/; SameSite=None; Secure
       Strict-Transport-Security:
       - max-age=31536000
       User-Agent:
@@ -1392,7 +1392,7 @@ interactions:
       X-Ratelimit-Limit-Remaining:
       - "9"
       X-Ratelimit-Reset:
-      - "1631507441"
+      - "1632825876"
     status: 200 OK
     code: 200
     duration: ""
