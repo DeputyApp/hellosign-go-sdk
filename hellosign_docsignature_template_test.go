@@ -3,6 +3,7 @@ package hellosign
 import (
 	"github.com/DeputyApp/hellosign-go-sdk/model"
 	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
 	"os"
 	"testing"
 )
@@ -27,6 +28,17 @@ func TestClient_CreateEmbeddedTemplate(t *testing.T) {
 	defer vcr.Stop()
 
 	client := createVcrClient(vcr)
+	customFields := []model.CustomField{
+		{
+			Name:     "Salary",
+			Type:     "text",
+		},
+		{
+			Name:     "zip",
+			Type:     "text",
+		},
+	}
+	
 	req := model.CreateEmbeddedTemplateRequest{
 		TestMode: true,
 		ClientID: os.Getenv("HELLOSIGN_CLIENT_ID"),
@@ -41,11 +53,12 @@ func TestClient_CreateEmbeddedTemplate(t *testing.T) {
 			"more": "dogs",
 		},
 		ShowPreview: true,
+		CustomFields: customFields,
 	}
 
 	res, err := client.CreateEmbeddedTemplate(req)
-	assert.NotNil(t, res, "Should return response")
-	assert.Nil(t, err, "Should not return error")
+	require.NotNil(t, res, "Should return response")
+	require.Nil(t, err, "Should not return error")
 
 	assert.NotEmpty(t, res.GetTemplateID())
 	assert.NotEmpty(t, res.GetEditURL())

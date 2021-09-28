@@ -42,7 +42,7 @@ func (m *Client) CreateNewApiApp(req model.CreateApiAppRequest) (*model.APIApp, 
 					if err != nil {
 						return nil, err
 					}
-					r, err := io.Copy(formField, file)
+					_, err = io.Copy(formField, file)
 				} else {
 					formField, err := writer.CreateFormField(fieldTag)
 					if err != nil {
