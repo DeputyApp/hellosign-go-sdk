@@ -13,7 +13,7 @@ type CreateEmbeddedTemplateRequest struct {
 	SignerRoles  []SignerRole      `form_field:"signer_roles"`
 	Metadata     map[string]string `form_field:"metadata"`
 	ShowPreview  bool              `form_field:"show_preview"`
-	CustomFields []CustomField `form_field:"merge_fields"`
+	CustomFields string            `form_field:"merge_fields"`
 }
 
 // GetTestMode returns TestMode
@@ -97,9 +97,9 @@ func (e *CreateEmbeddedTemplateRequest) IsShowingPreview() bool {
 }
 
 // GetCustomFields returns CustomFields
-func (e *CreateEmbeddedTemplateRequest) GetCustomFields() []CustomField {
+func (e *CreateEmbeddedTemplateRequest) GetCustomFields() string {
 	if e != nil {
 		return e.CustomFields
 	}
-	return nil
+	return ""
 }

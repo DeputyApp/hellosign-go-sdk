@@ -1,6 +1,7 @@
 package hellosign
 
 import (
+	"encoding/json"
 	"github.com/DeputyApp/hellosign-go-sdk/model"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
@@ -28,32 +29,35 @@ func TestClient_CreateEmbeddedTemplate(t *testing.T) {
 	defer vcr.Stop()
 
 	client := createVcrClient(vcr)
-	customFields := []model.CustomField{
+	customFields := []map[string]string{
 		{
-			Name:     "Salary",
-			Type:     "text",
+			"name": "Salary",
+			"type": "text",
 		},
 		{
-			Name:     "zip",
-			Type:     "text",
+			"name": "zip",
+			"type": "text",
 		},
 	}
-	
+	cf, _ := json.Marshal(customFields)
+
 	req := model.CreateEmbeddedTemplateRequest{
 		TestMode: true,
 		ClientID: os.Getenv("HELLOSIGN_CLIENT_ID"),
 		File:     []string{"fixtures/offer_letter.pdf"},
 		Title:    "Offer Letter",
-		SignerRoles: []model.SignerRole{model.SignerRole{
-			Name:  "Employee",
-			Order: 0,
-		}},
+		SignerRoles: []model.SignerRole{
+			{
+				Name:  "Employee",
+				Order: 0,
+			},
+		},
 		Metadata: map[string]string{
 			"no":   "cats",
 			"more": "dogs",
 		},
-		ShowPreview: true,
-		CustomFields: customFields,
+		ShowPreview:  true,
+		CustomFields: string(cf),
 	}
 
 	res, err := client.CreateEmbeddedTemplate(req)
