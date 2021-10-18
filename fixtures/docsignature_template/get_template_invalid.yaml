@@ -1,0 +1,48 @@
+---
+version: 1
+interactions:
+- request:
+    body: ""
+    form: {}
+    headers: {}
+    url: https://api.hellosign.com/v3/template/randomstringhere
+    method: GET
+  response:
+    body: '{"error":{"error_msg":"Template not found: randomstringhere","error_name":"not_found"}}'
+    headers:
+      Access-Control-Allow-Headers:
+      - Authorization, Origin, X-Requested-With, Content-Type, Accept
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Connection:
+      - keep-alive
+      Content-Length:
+      - "87"
+      Content-Type:
+      - application/json
+      Date:
+      - Mon, 18 Oct 2021 04:02:17 GMT
+      P3p:
+      - CP="NOP3PPOLICY"
+      Server:
+      - Apache
+      Set-Cookie:
+      - AWSALB=pGnOLCfPBTCBnBEGy+IrnfVhx847XkKjID8mpXYBgYKFGbgML73wK9AZyNfXHKc5ZZhmWS2eBNuxMby7H7f58OYmNFunmTqN0bxnE4vhOzfZG/M87ygLuju4eIi6;
+        Expires=Mon, 25 Oct 2021 04:02:17 GMT; Path=/
+      - AWSALBCORS=pGnOLCfPBTCBnBEGy+IrnfVhx847XkKjID8mpXYBgYKFGbgML73wK9AZyNfXHKc5ZZhmWS2eBNuxMby7H7f58OYmNFunmTqN0bxnE4vhOzfZG/M87ygLuju4eIi6;
+        Expires=Mon, 25 Oct 2021 04:02:17 GMT; Path=/; SameSite=None; Secure
+      Strict-Transport-Security:
+      - max-age=31536000
+      User-Agent:
+      - HelloSign API
+      X-Ratelimit-Limit:
+      - "100"
+      X-Ratelimit-Limit-Remaining:
+      - "99"
+      X-Ratelimit-Reset:
+      - "1634529737"
+    status: 404 Not Found
+    code: 404
+    duration: ""

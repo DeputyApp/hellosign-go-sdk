@@ -92,3 +92,33 @@ func TestClient_DeleteTemplate(t *testing.T) {
 	assert.NotNil(t, res, "Should return response")
 	assert.Nil(t, err, "Should not return error")
 }
+
+func TestClient_GetTemplate_Invalid(t *testing.T) {
+	vcr := fixture("fixtures/docsignature_template/get_template_invalid")
+	defer vcr.Stop()
+
+	templateID := "randomstringhere"
+
+	client := createVcrClient(vcr)
+	res, err := client.GetTemplate(templateID)
+	require.NotNil(t, err, "Should return an error")
+	assert.Nil(t, res, "Should return response")
+}
+
+func TestClient_GetTemplate_Valid(t *testing.T) {
+	vcr := fixture("fixtures/docsignature_template/get_template_valid")
+	defer vcr.Stop()
+
+	// This template is created with two custom fields via the embedded draft template api.
+	// However, only one is used in the embedded template editing flow.
+	// We want to make sure that there is only one custom field in the document, instead of two.
+	templateID := "c5754a7b3dae669d8a645a6cba79b340cdfdf3a2"
+
+	client := createVcrClient(vcr)
+	res, err := client.GetTemplate(templateID)
+	require.Nil(t, err, "Should return an error")
+	assert.NotNil(t, res, "Should return response")
+	assert.Equal(t, res.GetTemplateID(), templateID)
+	assert.True(t, len(res.GetDocuments()) > 0)
+	assert.True(t, len(res.GetDocuments()[0].GetCustomFields()) == 1)
+}
