@@ -3,13 +3,13 @@ version: 1
 interactions:
 - request:
     body: !!binary |
-      LS1hMDE3NWU0ZTYxNGFhMGJmZmY5OWZmMjQxZjA1MzQ0ZjEzYjJjMWUzOGRhOGRiM2ExMW
-      U2ZmIwNjIzMDINCkNvbnRlbnQtRGlzcG9zaXRpb246IGZvcm0tZGF0YTsgbmFtZT0idGVz
-      dF9tb2RlIg0KDQoxDQotLWEwMTc1ZTRlNjE0YWEwYmZmZjk5ZmYyNDFmMDUzNDRmMTNiMm
-      MxZTM4ZGE4ZGIzYTExZTZmYjA2MjMwMg0KQ29udGVudC1EaXNwb3NpdGlvbjogZm9ybS1k
-      YXRhOyBuYW1lPSJjbGllbnRfaWQiDQoNCmVmM2ExOTJjMjEyODFkNzk3MDNlYTA1NzRkYT
-      U3OWE5DQotLWEwMTc1ZTRlNjE0YWEwYmZmZjk5ZmYyNDFmMDUzNDRmMTNiMmMxZTM4ZGE4
-      ZGIzYTExZTZmYjA2MjMwMg0KQ29udGVudC1EaXNwb3NpdGlvbjogZm9ybS1kYXRhOyBuYW
+      LS05ZTdkZGIxNTQ3ZmI1NDhkYzI1NDE4ZjkwNDk1MmU4YjMwMzVmYmNmMDg5NTZiZGRiZD
+      UzNWJkNWYxMzMNCkNvbnRlbnQtRGlzcG9zaXRpb246IGZvcm0tZGF0YTsgbmFtZT0idGVz
+      dF9tb2RlIg0KDQoxDQotLTllN2RkYjE1NDdmYjU0OGRjMjU0MThmOTA0OTUyZThiMzAzNW
+      ZiY2YwODk1NmJkZGJkNTM1YmQ1ZjEzMw0KQ29udGVudC1EaXNwb3NpdGlvbjogZm9ybS1k
+      YXRhOyBuYW1lPSJjbGllbnRfaWQiDQoNCjNkZWVhZDc5MzNmYTBhNDkwMGFmMGI2OTQwYz
+      RhYzQyDQotLTllN2RkYjE1NDdmYjU0OGRjMjU0MThmOTA0OTUyZThiMzAzNWZiY2YwODk1
+      NmJkZGJkNTM1YmQ1ZjEzMw0KQ29udGVudC1EaXNwb3NpdGlvbjogZm9ybS1kYXRhOyBuYW
       1lPSJmaWxlWzBdIjsgZmlsZW5hbWU9ImZpeHR1cmVzL29mZmVyX2xldHRlci5wZGYiDQpD
       b250ZW50LVR5cGU6IGFwcGxpY2F0aW9uL29jdGV0LXN0cmVhbQ0KDQolUERGLTEuNAol+/
       z9/go0IDAgb2JqCjw8Ci9QYXJlbnQgMyAwIFIKL1Jlc291cmNlcyA1IDAgUgovTWVkaWFC
@@ -1336,31 +1336,31 @@ interactions:
       PDwKL1Jvb3QgMSAwIFIKL0lEIFsoNmUxZjRlMzUtMDYzYS00NzVhLTkyZTMtOTdmMDk5MD
       c5ZjcyKSAoNmUxZjRlMzUtMDYzYS00NzVhLTkyZTMtOTdmMDk5MDc5ZjcyKV0KL0luZm8g
       MiAwIFIKL1NpemUgMzIKL1ByZXYgNTk2MDUgPj4Kc3RhcnR4cmVmCjY5MjM4CiUlRU9GCg
-      0KLS1hMDE3NWU0ZTYxNGFhMGJmZmY5OWZmMjQxZjA1MzQ0ZjEzYjJjMWUzOGRhOGRiM2Ex
-      MWU2ZmIwNjIzMDINCkNvbnRlbnQtRGlzcG9zaXRpb246IGZvcm0tZGF0YTsgbmFtZT0idG
-      l0bGUiDQoNCk9mZmVyIExldHRlcg0KLS1hMDE3NWU0ZTYxNGFhMGJmZmY5OWZmMjQxZjA1
-      MzQ0ZjEzYjJjMWUzOGRhOGRiM2ExMWU2ZmIwNjIzMDINCkNvbnRlbnQtRGlzcG9zaXRpb2
+      0KLS05ZTdkZGIxNTQ3ZmI1NDhkYzI1NDE4ZjkwNDk1MmU4YjMwMzVmYmNmMDg5NTZiZGRi
+      ZDUzNWJkNWYxMzMNCkNvbnRlbnQtRGlzcG9zaXRpb246IGZvcm0tZGF0YTsgbmFtZT0idG
+      l0bGUiDQoNCk9mZmVyIExldHRlcg0KLS05ZTdkZGIxNTQ3ZmI1NDhkYzI1NDE4ZjkwNDk1
+      MmU4YjMwMzVmYmNmMDg5NTZiZGRiZDUzNWJkNWYxMzMNCkNvbnRlbnQtRGlzcG9zaXRpb2
       46IGZvcm0tZGF0YTsgbmFtZT0ic2lnbmVyX3JvbGVzWzBdW25hbWVdIg0KDQpFbXBsb3ll
-      ZQ0KLS1hMDE3NWU0ZTYxNGFhMGJmZmY5OWZmMjQxZjA1MzQ0ZjEzYjJjMWUzOGRhOGRiM2
-      ExMWU2ZmIwNjIzMDINCkNvbnRlbnQtRGlzcG9zaXRpb246IGZvcm0tZGF0YTsgbmFtZT0i
-      bWV0YWRhdGFbbm9dIg0KDQpjYXRzDQotLWEwMTc1ZTRlNjE0YWEwYmZmZjk5ZmYyNDFmMD
-      UzNDRmMTNiMmMxZTM4ZGE4ZGIzYTExZTZmYjA2MjMwMg0KQ29udGVudC1EaXNwb3NpdGlv
-      bjogZm9ybS1kYXRhOyBuYW1lPSJtZXRhZGF0YVttb3JlXSINCg0KZG9ncw0KLS1hMDE3NW
-      U0ZTYxNGFhMGJmZmY5OWZmMjQxZjA1MzQ0ZjEzYjJjMWUzOGRhOGRiM2ExMWU2ZmIwNjIz
-      MDINCkNvbnRlbnQtRGlzcG9zaXRpb246IGZvcm0tZGF0YTsgbmFtZT0ic2hvd19wcmV2aW
-      V3Ig0KDQoxDQotLWEwMTc1ZTRlNjE0YWEwYmZmZjk5ZmYyNDFmMDUzNDRmMTNiMmMxZTM4
-      ZGE4ZGIzYTExZTZmYjA2MjMwMg0KQ29udGVudC1EaXNwb3NpdGlvbjogZm9ybS1kYXRhOy
+      ZQ0KLS05ZTdkZGIxNTQ3ZmI1NDhkYzI1NDE4ZjkwNDk1MmU4YjMwMzVmYmNmMDg5NTZiZG
+      RiZDUzNWJkNWYxMzMNCkNvbnRlbnQtRGlzcG9zaXRpb246IGZvcm0tZGF0YTsgbmFtZT0i
+      bWV0YWRhdGFbbm9dIg0KDQpjYXRzDQotLTllN2RkYjE1NDdmYjU0OGRjMjU0MThmOTA0OT
+      UyZThiMzAzNWZiY2YwODk1NmJkZGJkNTM1YmQ1ZjEzMw0KQ29udGVudC1EaXNwb3NpdGlv
+      bjogZm9ybS1kYXRhOyBuYW1lPSJtZXRhZGF0YVttb3JlXSINCg0KZG9ncw0KLS05ZTdkZG
+      IxNTQ3ZmI1NDhkYzI1NDE4ZjkwNDk1MmU4YjMwMzVmYmNmMDg5NTZiZGRiZDUzNWJkNWYx
+      MzMNCkNvbnRlbnQtRGlzcG9zaXRpb246IGZvcm0tZGF0YTsgbmFtZT0ic2hvd19wcmV2aW
+      V3Ig0KDQoxDQotLTllN2RkYjE1NDdmYjU0OGRjMjU0MThmOTA0OTUyZThiMzAzNWZiY2Yw
+      ODk1NmJkZGJkNTM1YmQ1ZjEzMw0KQ29udGVudC1EaXNwb3NpdGlvbjogZm9ybS1kYXRhOy
       BuYW1lPSJtZXJnZV9maWVsZHMiDQoNClt7Im5hbWUiOiJTYWxhcnkiLCJ0eXBlIjoidGV4
-      dCJ9LHsibmFtZSI6InppcCIsInR5cGUiOiJ0ZXh0In1dDQotLWEwMTc1ZTRlNjE0YWEwYm
-      ZmZjk5ZmYyNDFmMDUzNDRmMTNiMmMxZTM4ZGE4ZGIzYTExZTZmYjA2MjMwMi0tDQo=
+      dCJ9LHsibmFtZSI6InppcCIsInR5cGUiOiJ0ZXh0In1dDQotLTllN2RkYjE1NDdmYjU0OG
+      RjMjU0MThmOTA0OTUyZThiMzAzNWZiY2YwODk1NmJkZGJkNTM1YmQ1ZjEzMy0tDQo=
     form: {}
     headers:
       Content-Type:
-      - multipart/form-data; boundary=a0175e4e614aa0bfff99ff241f05344f13b2c1e38da8db3a11e6fb062302
+      - multipart/form-data; boundary=9e7ddb1547fb548dc25418f904952e8b3035fbcf08956bddbd535bd5f133
     url: https://api.hellosign.com/v3/template/create_embedded_draft
     method: POST
   response:
-    body: '{"template":{"template_id":"a95517a102d1faf5ea5fcb7ab24e53c791263595","edit_url":"https:\/\/embedded.hellosign.com\/prep-and-send\/embedded-template?cached_params_token=b70c03940fd8e8c4d6af48122906b106","expires_at":1633438798},"warnings":[{"warning_msg":"The
+    body: '{"template":{"template_id":"c5754a7b3dae669d8a645a6cba79b340cdfdf3a2","edit_url":"https:\/\/embedded.hellosign.com\/prep-and-send\/embedded-template?cached_params_token=fe0035a7c8d1f9bec28df3c8666a61b0","expires_at":1634532519},"warnings":[{"warning_msg":"The
       created template will be locked. Upgrade your account to use more templates.","warning_name":"need_credit"}]}'
     headers:
       Access-Control-Allow-Headers:
@@ -1374,16 +1374,16 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Tue, 05 Oct 2021 11:59:58 GMT
+      - Mon, 18 Oct 2021 03:48:39 GMT
       P3p:
       - CP="NOP3PPOLICY"
       Server:
       - Apache
       Set-Cookie:
-      - AWSALB=X6W54XMpHuzldvRV6Lsr0n8DH4lHceJQdbP/YCFbhQqHmI9uk3wwI5YmY8gKkweFVvYA9z3bvjyuhdPjnoFXeKmKwoImzPws3633YNB8Dc6D5d77pTdoMUVpdcQ+;
-        Expires=Tue, 12 Oct 2021 11:59:56 GMT; Path=/
-      - AWSALBCORS=X6W54XMpHuzldvRV6Lsr0n8DH4lHceJQdbP/YCFbhQqHmI9uk3wwI5YmY8gKkweFVvYA9z3bvjyuhdPjnoFXeKmKwoImzPws3633YNB8Dc6D5d77pTdoMUVpdcQ+;
-        Expires=Tue, 12 Oct 2021 11:59:56 GMT; Path=/; SameSite=None; Secure
+      - AWSALB=IX8LU7owyJErA0KIzBvKE1nmpoJ6OqObRG/msTamJyMa6MQ83DQBRjn6m+ajsFdSiFPew9Z13NzH6a5RRdEUsRIgNvOS6N1pHacSxJLJjwIo8SzsKwqMz+5VG/gb;
+        Expires=Mon, 25 Oct 2021 03:48:38 GMT; Path=/
+      - AWSALBCORS=IX8LU7owyJErA0KIzBvKE1nmpoJ6OqObRG/msTamJyMa6MQ83DQBRjn6m+ajsFdSiFPew9Z13NzH6a5RRdEUsRIgNvOS6N1pHacSxJLJjwIo8SzsKwqMz+5VG/gb;
+        Expires=Mon, 25 Oct 2021 03:48:38 GMT; Path=/; SameSite=None; Secure
       Strict-Transport-Security:
       - max-age=31536000
       User-Agent:
@@ -1395,7 +1395,7 @@ interactions:
       X-Ratelimit-Limit-Remaining:
       - "9"
       X-Ratelimit-Reset:
-      - "1633435198"
+      - "1634528918"
     status: 200 OK
     code: 200
     duration: ""

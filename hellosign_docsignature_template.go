@@ -93,6 +93,31 @@ func (m *Client) GetEmbeddedTemplateEditURL(templateID string) (*model.EmbeddedT
 	return data.GetEmbedded(), nil
 }
 
+func (m *Client) GetTemplate(templateID string) (*model.Template, error) {
+	if templateID == "" {
+		return nil, fmt.Errorf("invalid argument: %s", templateID)
+	}
+	path := fmt.Sprintf("template/%s", templateID)
+
+	response, err := m.get(path)
+	if err != nil {
+		return nil, err
+	}
+
+	if response.StatusCode == 404 {
+		return nil, fmt.Errorf("template not found")
+	} else if response.StatusCode != 200 {
+		return nil, fmt.Errorf("error occurred when retrieving template details")
+	}
+
+	data := &model.GetTemplateResponse{}
+	err = json.NewDecoder(response.Body).Decode(data)
+	if err != nil {
+		return nil, err
+	}
+	return data.GetTemplate(), nil
+}
+
 func (m *Client) marshalMultipartCreateEmbeddedTemplateRequest(embRequest model.CreateEmbeddedTemplateRequest) (*bytes.Buffer, *multipart.Writer, error) {
 
 	var b bytes.Buffer
