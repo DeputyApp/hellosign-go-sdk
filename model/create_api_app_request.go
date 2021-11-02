@@ -2,7 +2,7 @@ package model
 
 type CreateApiAppRequest struct {
 	Name                 string `json:"name" form_field:"name"`
-	Domain               string `json:"domain" form_field:"domain"`
+	Domains               []string `json:"domain" form_field:"domains"`
 	CallbackURL          string `json:"callback_url" form_field:"callback_url"`
 	CustomLogoFile       string `json:"custom_logo_file" form_field:"custom_logo_file"`
 	WhiteLabelingOptions string `json:"white_labeling_options" form_field:"white_labeling_options"`
@@ -16,12 +16,12 @@ func (a *CreateApiAppRequest) GetName() string {
 	return ""
 }
 
-// GetDomain returns Domain
-func (a *CreateApiAppRequest) GetDomain() string {
+// GetDomains returns Domains
+func (a *CreateApiAppRequest) GetDomains() []string {
 	if a != nil {
-		return a.Domain
+		return a.Domains
 	}
-	return ""
+	return nil
 }
 
 // GetCallbackURL returns CallbackURL
