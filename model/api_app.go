@@ -6,7 +6,7 @@ type APIApp struct {
 	ClientID             string   `json:"client_id"`
 	CreatedAt            int      `json:"created_at"`
 	Name                 string   `json:"name"`
-	Domain               string   `json:"domain"`
+	Domain               []string `json:"domain"`
 	CallbackURL          string   `json:"callback_url"`
 	IsApproved           bool     `json:"is_approved"`
 	OwnerAccount         *Account `json:"owner_account"`
@@ -39,11 +39,11 @@ func (a *APIApp) GetName() string {
 }
 
 // GetDomain returns Domain
-func (a *APIApp) GetDomain() string {
+func (a *APIApp) GetDomain() []string {
 	if a != nil {
 		return a.Domain
 	}
-	return ""
+	return nil
 }
 
 // GetCallbackURL returns CallbackURL

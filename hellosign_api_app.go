@@ -3,6 +3,7 @@ package hellosign
 import (
 	"bytes"
 	"encoding/json"
+	"fmt"
 	"github.com/DeputyApp/hellosign-go-sdk/model"
 	"io"
 	"mime/multipart"
@@ -12,9 +13,11 @@ import (
 
 const (
 	HellosignCustomLogoFileKey = "custom_logo_file"
+	DomainsKey    string = "domains"
 )
 
 // CreateNewApiApp – Creates a new API App.
+// Note: we don't support a single domain at the moment as it is  out of our current use cases
 func (m *Client) CreateNewApiApp(req model.CreateApiAppRequest) (*model.APIApp, error) {
 	var params bytes.Buffer
 	writer := multipart.NewWriter(&params)
@@ -30,6 +33,17 @@ func (m *Client) CreateNewApiApp(req model.CreateApiAppRequest) (*model.APIApp, 
 		fieldTag := field.Tag.Get(FormFieldKey)
 
 		switch val.Kind() {
+		case reflect.Slice:
+			switch fieldTag {
+			case DomainsKey:
+				for i, domain := range req.GetDomains() {
+					name, err := writer.CreateFormField(fmt.Sprintf("%s[%v]", DomainsKey, i))
+					if err != nil {
+						return nil, err
+					}
+					name.Write([]byte(domain))
+				}
+			}
 		default:
 			if val.String() != "" {
 				if fieldTag == HellosignCustomLogoFileKey {

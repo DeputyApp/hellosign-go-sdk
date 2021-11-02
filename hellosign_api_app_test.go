@@ -13,14 +13,14 @@ func TestClient_CreateNewApiApp(t *testing.T) {
 
 	client := createVcrClient(vcr)
 	expectedName := "Example API App – testing"
-	expectedDomain := "example.com"
+	expectedDomains := []string{"example.com","test.com"}
 	expectedCallbackURL := "https://www.example.com/callback"
 	logo := "fixtures/beard.png"
 
 	expectedWhiteLabelingOptions := "{\"header_background_color\":\"#F7F8F9\",\"primary_button_color\":\"#C0A464\",\"text_color2\":\"#808080\"}"
 	req := model.CreateApiAppRequest{
 		Name:                 expectedName,
-		Domain:               expectedDomain,
+		Domains:              expectedDomains,
 		CallbackURL:          expectedCallbackURL,
 		WhiteLabelingOptions: expectedWhiteLabelingOptions,
 		CustomLogoFile:       logo,
@@ -31,7 +31,7 @@ func TestClient_CreateNewApiApp(t *testing.T) {
 	assert.NotNil(t, res, "Should return response")
 
 	assert.Equal(t, expectedName, res.GetName())
-	assert.Equal(t, expectedDomain, res.GetDomain())
+	assert.Equal(t, expectedDomains, res.GetDomain())
 	assert.Equal(t, expectedCallbackURL, res.GetCallbackURL())
 	assert.Equal(t, expectedWhiteLabelingOptions, res.GetWhiteLabelingOptions())
 	assert.NotEmpty(t, res.GetCreatedAt())
