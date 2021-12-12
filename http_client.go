@@ -9,6 +9,7 @@ import (
 	"mime/multipart"
 	"net/http"
 	"strings"
+	"time"
 )
 
 func (m *Client) get(path string) (*http.Response, error) {
@@ -89,7 +90,9 @@ func (m *Client) getHTTPClient() *http.Client {
 	if m.HTTPClient != nil {
 		httpClient = m.HTTPClient
 	} else {
-		httpClient = &http.Client{}
+		httpClient = &http.Client{
+			Timeout: time.Second * 5,
+		}
 	}
 	return httpClient
 }
