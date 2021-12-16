@@ -4,8 +4,8 @@ type TemplateDocumentFormField struct {
 	APIId       string       `json:"api_id"`
 	Name        string       `json:"name"`
 	Type        string       `json:"type"`
-	Width       int          `json:"width"`
-	Height      int          `json:"height"`
+	Width       float64      `json:"width"`
+	Height      float64      `json:"height"`
 	Required    bool         `json:"required"`
 	SignerRoles []SignerRole `json:"signer_roles"`
 }
@@ -35,7 +35,7 @@ func (d *TemplateDocumentFormField) GetType() string {
 }
 
 // GetWidth returns Width
-func (d *TemplateDocumentFormField) GetWidth() int {
+func (d *TemplateDocumentFormField) GetWidth() float64 {
 	if d != nil {
 		return d.Width
 	}
@@ -43,7 +43,7 @@ func (d *TemplateDocumentFormField) GetWidth() int {
 }
 
 // GetHeight returns Height
-func (d *TemplateDocumentFormField) GetHeight() int {
+func (d *TemplateDocumentFormField) GetHeight() float64 {
 	if d != nil {
 		return d.Height
 	}
