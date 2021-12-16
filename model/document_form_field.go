@@ -1,15 +1,15 @@
 package model
 
 type DocumentFormField struct {
-	APIId    string `json:"api_id"`
-	Name     string `json:"name"`
-	Type     string `json:"type"`
-	X        int    `json:"x"`
-	Y        int    `json:"y"`
-	Width    int    `json:"width"`
-	Height   int    `json:"height"`
-	Required bool   `json:"required"`
-	Signer   int    `json:"signer"`
+	APIId    string  `json:"api_id"`
+	Name     string  `json:"name"`
+	Type     string  `json:"type"`
+	X        float64 `json:"x"`
+	Y        float64 `json:"y"`
+	Width    float64 `json:"width"`
+	Height   float64 `json:"height"`
+	Required bool    `json:"required"`
+	Signer   int     `json:"signer"`
 }
 
 // GetAPIId returns APIId
@@ -37,7 +37,7 @@ func (d *DocumentFormField) GetType() string {
 }
 
 // GetX returns X
-func (d *DocumentFormField) GetX() int {
+func (d *DocumentFormField) GetX() float64 {
 	if d != nil {
 		return d.X
 	}
@@ -45,7 +45,7 @@ func (d *DocumentFormField) GetX() int {
 }
 
 // GetY returns Y
-func (d *DocumentFormField) GetY() int {
+func (d *DocumentFormField) GetY() float64 {
 	if d != nil {
 		return d.Y
 	}
@@ -53,7 +53,7 @@ func (d *DocumentFormField) GetY() int {
 }
 
 // GetWidth returns Width
-func (d *DocumentFormField) GetWidth() int {
+func (d *DocumentFormField) GetWidth() float64 {
 	if d != nil {
 		return d.Width
 	}
@@ -61,7 +61,7 @@ func (d *DocumentFormField) GetWidth() int {
 }
 
 // GetHeight returns Height
-func (d *DocumentFormField) GetHeight() int {
+func (d *DocumentFormField) GetHeight() float64 {
 	if d != nil {
 		return d.Height
 	}
