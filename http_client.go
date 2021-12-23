@@ -91,7 +91,7 @@ func (m *Client) getHTTPClient() *http.Client {
 		httpClient = m.HTTPClient
 	} else {
 		httpClient = &http.Client{
-			Timeout: time.Second * 7,
+			Timeout: time.Second * 10,
 		}
 	}
 	return httpClient
