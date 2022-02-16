@@ -62,6 +62,37 @@ func (m *Client) request(method string, path string, params *bytes.Buffer, w mul
 	return response, err
 }
 
+func (m *Client) nakedGet(path string) (*http.Response, error) {
+	endpoint := fmt.Sprintf("%s%s", m.getEndpoint(), path)
+	var b bytes.Buffer
+	request, _ := http.NewRequest("GET", endpoint, &b)
+	request.SetBasicAuth(m.APIKey, "")
+
+	response, err := m.getHTTPClient().Do(request)
+	if err != nil {
+		return nil, err
+	}
+
+	if response.StatusCode >= 400 {
+		msg := fmt.Sprintf("hellosign request failed with status %d", response.StatusCode)
+		e := &model.ErrorResponse{}
+		json.NewDecoder(response.Body).Decode(e)
+		if e.Error != nil {
+			msg = fmt.Sprintf("%s: %s", e.Error.Name, e.Error.Message)
+		} else {
+			messages := []string{}
+			for _, w := range e.Warnings {
+				messages = append(messages, fmt.Sprintf("%s: %s", w.Name, w.Message))
+			}
+			msg = strings.Join(messages, ", ")
+		}
+
+		return response, errors.New(msg)
+	}
+
+	return response, err
+}
+
 func (m *Client) nakedPost(path string) (*http.Response, error) {
 	endpoint := fmt.Sprintf("%s%s", m.getEndpoint(), path)
 	var b bytes.Buffer

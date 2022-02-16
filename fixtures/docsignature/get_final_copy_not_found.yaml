@@ -1,0 +1,48 @@
+---
+version: 1
+interactions:
+- request:
+    body: ""
+    form: {}
+    headers: {}
+    url: https://api.hellosign.com/v3/signature_request/final_copy/randomid
+    method: GET
+  response:
+    body: '{"error":{"error_msg":"Not found","error_name":"not_found"}}'
+    headers:
+      Access-Control-Allow-Headers:
+      - Authorization, Origin, X-Requested-With, Content-Type, Accept
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Connection:
+      - keep-alive
+      Content-Length:
+      - "60"
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 16 Feb 2022 02:25:27 GMT
+      P3p:
+      - CP="NOP3PPOLICY"
+      Server:
+      - Apache
+      Set-Cookie:
+      - AWSALB=yvLjiRWEa0n3CCocFLRCjRkOYONgWg8tIEM4fYmNHlg9sWcqeVZwXohLIVce3sdqiPiFObfhQHfsS9CDXX3Uwn+jOVr114T2ymcHCzwDDqOGf7PjhmJ4vcvDb+sd;
+        Expires=Wed, 23 Feb 2022 02:25:27 GMT; Path=/
+      - AWSALBCORS=yvLjiRWEa0n3CCocFLRCjRkOYONgWg8tIEM4fYmNHlg9sWcqeVZwXohLIVce3sdqiPiFObfhQHfsS9CDXX3Uwn+jOVr114T2ymcHCzwDDqOGf7PjhmJ4vcvDb+sd;
+        Expires=Wed, 23 Feb 2022 02:25:27 GMT; Path=/; SameSite=None; Secure
+      Strict-Transport-Security:
+      - max-age=31536000
+      User-Agent:
+      - HelloSign API
+      X-Ratelimit-Limit:
+      - "25"
+      X-Ratelimit-Limit-Remaining:
+      - "23"
+      X-Ratelimit-Reset:
+      - "1644978329"
+    status: 404 Not Found
+    code: 404
+    duration: ""

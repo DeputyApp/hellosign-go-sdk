@@ -111,9 +111,29 @@ func (m *Client) GetPDF(signatureRequestID string) ([]byte, error) {
 	return m.GetFiles(signatureRequestID, "pdf")
 }
 
+// GetFinalCopy - Obtain a final (signed) copy of a signature_request_id in pdf format.
+func (m *Client) GetFinalCopy(signatureRequestID string) ([]byte, error) {
+	path := fmt.Sprintf("signature_request/final_copy/%s", signatureRequestID)
+
+	response, err := m.nakedGet(path)
+	if err != nil {
+		return nil, err
+	}
+
+	defer response.Body.Close()
+
+	data, err := ioutil.ReadAll(response.Body)
+	if err != nil {
+		return nil, err
+	}
+
+	return data, nil
+}
+
 // GetFiles - Obtain a copy of the current documents specified by the signature_request_id parameter.
 // signatureRequestID - The id of the SignatureRequest to retrieve.
 // fileType - Set to "pdf" for a single merged document or "zip" for a collection of individual documents.
+// note: this will return an unsigned copy instead of 404 if the signature request is not signed.
 func (m *Client) GetFiles(signatureRequestID, fileType string) ([]byte, error) {
 	path := fmt.Sprintf("signature_request/files/%s", signatureRequestID)
 
