@@ -199,6 +199,48 @@ func TestGetPDF(t *testing.T) {
 	assert.Equal(t, 98781, len(data))
 }
 
+func TestGetFinalCopy(t *testing.T) {
+	vcr := fixture("fixtures/docsignature/get_final_copy")
+	defer vcr.Stop() // Make sure recorder is stopped once done with it
+
+	client := createVcrClient(vcr)
+
+	data, err := client.GetFinalCopy("f0256f58ecfc81719b60ec90104e18324ae07ca9")
+
+	assert.NotNil(t, data, "Should return response")
+	assert.Nil(t, err, "Should not return error")
+
+	assert.Equal(t, 238597, len(data))
+}
+
+func TestGetFinalCopyPresigned(t *testing.T) {
+	vcr := fixture("fixtures/docsignature/get_final_copy_presigned_failed")
+	defer vcr.Stop() // Make sure recorder is stopped once done with it
+
+	client := createVcrClient(vcr)
+
+	data, err := client.GetFinalCopy("f0256f58ecfc81719b60ec90104e18324ae07ca9")
+
+	assert.Nil(t, data, "Should return response")
+	assert.NotNil(t, err, "Should not return error")
+
+	assert.Equal(t, "forbidden: Not ready", err.Error())
+}
+
+func TestGetFinalCopyFailedNotFound(t *testing.T) {
+	vcr := fixture("fixtures/docsignature/get_final_copy_not_found")
+	defer vcr.Stop() // Make sure recorder is stopped once done with it
+
+	client := createVcrClient(vcr)
+
+	data, err := client.GetFinalCopy("randomid")
+
+	assert.Nil(t, data, "Should return response")
+	assert.NotNil(t, err, "Should not return error")
+
+	assert.Equal(t, "not_found: Not found", err.Error())
+}
+
 func TestCancelSignatureRequests(t *testing.T) {
 	vcr := fixture("fixtures/docsignature/cancel_signature_request")
 	defer vcr.Stop() // Make sure recorder is stopped once done with it

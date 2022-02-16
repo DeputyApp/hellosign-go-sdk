@@ -1,0 +1,48 @@
+---
+version: 1
+interactions:
+- request:
+    body: ""
+    form: {}
+    headers: {}
+    url: https://api.hellosign.com/v3/signature_request/final_copy/f0256f58ecfc81719b60ec90104e18324ae07ca9
+    method: GET
+  response:
+    body: '{"error":{"error_msg":"Not ready","error_name":"forbidden"}}'
+    headers:
+      Access-Control-Allow-Headers:
+      - Authorization, Origin, X-Requested-With, Content-Type, Accept
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Connection:
+      - keep-alive
+      Content-Length:
+      - "60"
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 16 Feb 2022 02:25:27 GMT
+      P3p:
+      - CP="NOP3PPOLICY"
+      Server:
+      - Apache
+      Set-Cookie:
+      - AWSALB=a0GcgADBj0EgF1Ay5PWPivVgHZ4kVLgglV/3a+/tWCe9iFaaiiPVv7iqRzIEeBOk38pOoZmMBUp9MW59IfEcJcesig19wN8qqa6qeNHpyhezstey6/gTR4uGBt16;
+        Expires=Wed, 23 Feb 2022 02:25:27 GMT; Path=/
+      - AWSALBCORS=a0GcgADBj0EgF1Ay5PWPivVgHZ4kVLgglV/3a+/tWCe9iFaaiiPVv7iqRzIEeBOk38pOoZmMBUp9MW59IfEcJcesig19wN8qqa6qeNHpyhezstey6/gTR4uGBt16;
+        Expires=Wed, 23 Feb 2022 02:25:27 GMT; Path=/; SameSite=None; Secure
+      Strict-Transport-Security:
+      - max-age=31536000
+      User-Agent:
+      - HelloSign API
+      X-Ratelimit-Limit:
+      - "25"
+      X-Ratelimit-Limit-Remaining:
+      - "24"
+      X-Ratelimit-Reset:
+      - "1644978330"
+    status: 403 Forbidden
+    code: 403
+    duration: ""
