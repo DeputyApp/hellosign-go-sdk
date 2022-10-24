@@ -24,6 +24,21 @@ func TestClient_GetEmbeddedTemplateEditURL(t *testing.T) {
 	assert.Equal(t, 1630908730, res.GetExpiresAt())
 }
 
+func TestClient_GetEmbeddedTemplateEditURLForPreview(t *testing.T) {
+	vcr := fixture("fixtures/docsignature_template/get_embedded_template_edit_url_for_preview")
+	defer vcr.Stop() // Make sure recorder is stopped once done with it
+
+	client := createVcrClient(vcr)
+
+	res, err := client.GetEmbeddedTemplateEditURLForPreview("a5a092da1d4476a5ad8a310834eaa1ca8df450d8")
+
+	assert.NotNil(t, res, "Should return response")
+	assert.Nil(t, err, "Should not return error")
+	
+	assert.Contains(t, res.GetEditURL(), "https://embedded.hellosign.com/prep-and-send/embedded-template?cached_params_token=")
+	assert.Equal(t, 1666645443, res.GetExpiresAt())
+}
+
 func TestClient_CreateEmbeddedTemplate(t *testing.T) {
 	vcr := fixture("fixtures/docsignature_template/create_embedded_template")
 	defer vcr.Stop()
