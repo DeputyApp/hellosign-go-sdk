@@ -13,6 +13,7 @@ type CreateEmbeddedTemplateRequest struct {
 	SignerRoles  []SignerRole      `form_field:"signer_roles"`
 	Metadata     map[string]string `form_field:"metadata"`
 	ShowPreview  bool              `form_field:"show_preview"`
+	PreviewOnly  bool              `form_field:"preview_only"`
 	CustomFields string            `form_field:"merge_fields"`
 }
 
@@ -102,4 +103,12 @@ func (e *CreateEmbeddedTemplateRequest) GetCustomFields() string {
 		return e.CustomFields
 	}
 	return ""
+}
+
+// IsPreviewOnly returns PreviewOnly
+func (e *CreateEmbeddedTemplateRequest) IsPreviewOnly() bool {
+	if e != nil {
+		return e.PreviewOnly
+	}
+	return false
 }

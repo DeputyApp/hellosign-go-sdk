@@ -1,0 +1,61 @@
+---
+version: 1
+interactions:
+- request:
+    body: "--fdf8a02d317dacd9e505e0ac8d8ee5b70a7468bf529a0a86665cfa0463e0\r\nContent-Disposition:
+      form-data; name=\"test_mode\"\r\n\r\n1\r\n--fdf8a02d317dacd9e505e0ac8d8ee5b70a7468bf529a0a86665cfa0463e0\r\nContent-Disposition:
+      form-data; name=\"show_preview\"\r\n\r\n0\r\n--fdf8a02d317dacd9e505e0ac8d8ee5b70a7468bf529a0a86665cfa0463e0\r\nContent-Disposition:
+      form-data; name=\"preview_only\"\r\n\r\n1\r\n--fdf8a02d317dacd9e505e0ac8d8ee5b70a7468bf529a0a86665cfa0463e0--\r\n"
+    form: {}
+    headers:
+      Content-Type:
+      - multipart/form-data; boundary=fdf8a02d317dacd9e505e0ac8d8ee5b70a7468bf529a0a86665cfa0463e0
+    url: https://api.hellosign.com/v3/embedded/edit_url/a5a092da1d4476a5ad8a310834eaa1ca8df450d8
+    method: POST
+  response:
+    body: '{"embedded":{"edit_url":"https:\/\/embedded.hellosign.com\/prep-and-send\/embedded-template?cached_params_token=70046a2fd30ea52a8bea61baa90eb142","expires_at":1666645443},"warnings":[{"warning_msg":"skip_signer_roles
+      is going to be deprecated and will be the default behavior moving forward. Remove
+      the use of skip_signer_roles and use force_signer_roles to enforce showing the
+      signer roles screen.","warning_name":"deprecated_parameter"},{"warning_msg":"skip_subject_message
+      is going to be deprecated and will be the default behavior moving forward. Remove
+      the use of skip_subject_message and use force_subject_message to enforce showing
+      the subject message screen.","warning_name":"deprecated_parameter"}]}'
+    headers:
+      Access-Control-Allow-Headers:
+      - Authorization, Origin, X-Requested-With, Content-Type, Accept, Request-URL,
+        Referrer-Policy, Referer, Sec-CH-UA, Sec-CH-UA-Mobile, Sec-CH-UA-Platform,
+        Sec-Fetch-Site, User-Agent, X-User-Agent
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS, PUT, DELETE
+      Access-Control-Allow-Origin:
+      - '*'
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Mon, 24 Oct 2022 20:04:04 GMT
+      P3p:
+      - CP="NOP3PPOLICY"
+      Server:
+      - Apache
+      Set-Cookie:
+      - AWSALB=GXDf9bgKZ1lrqgI9XuN+Bb0b/iK/xz+P5XwtJxIIlvXXfTMS9+F3jwggc2RSH9AJriWzk5IvnraYnwLmXX9mLXrQ/5hTHazAb7ih8ypAQh6Pt5hB/iKYqj0Mm72Q;
+        Expires=Mon, 31 Oct 2022 20:04:03 GMT; Path=/
+      - AWSALBCORS=GXDf9bgKZ1lrqgI9XuN+Bb0b/iK/xz+P5XwtJxIIlvXXfTMS9+F3jwggc2RSH9AJriWzk5IvnraYnwLmXX9mLXrQ/5hTHazAb7ih8ypAQh6Pt5hB/iKYqj0Mm72Q;
+        Expires=Mon, 31 Oct 2022 20:04:03 GMT; Path=/; SameSite=None; Secure
+      Strict-Transport-Security:
+      - max-age=31536000
+      User-Agent:
+      - HelloSign API
+      Vary:
+      - Origin,Accept-Encoding
+      X-Ratelimit-Limit:
+      - "10"
+      X-Ratelimit-Limit-Remaining:
+      - "9"
+      X-Ratelimit-Reset:
+      - "1666641843"
+    status: 200 OK
+    code: 200
+    duration: ""

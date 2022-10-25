@@ -20,6 +20,7 @@ const (
 	SubjectKey     string = "subject"
 	MessageKey     string = "message"
 	ShowPreviewKey string = "show_preview"
+	PreviewOnlyKey string = "preview_only"
 	MetadataKey    string = "metadata"
 	SignerRolesKey string = "signer_roles"
 	FileURLKey     string = "file_url"
@@ -74,6 +75,9 @@ func (m *Client) DeleteTemplate(templateID string) (*http.Response, error) {
 }
 
 // GetEmbeddedTemplateEditURL - Retrieves an embedded template object.
+// TODO Abhishek: This is an incorrect implementation and should be replaced with a POST call.
+//
+//	A few things need to change and hence leaving it for now.
 func (m *Client) GetEmbeddedTemplateEditURL(templateID string) (*model.EmbeddedTemplateEditURL, error) {
 	if templateID == "" {
 		return nil, fmt.Errorf("invalid argument: %s", templateID)
@@ -81,6 +85,38 @@ func (m *Client) GetEmbeddedTemplateEditURL(templateID string) (*model.EmbeddedT
 	path := fmt.Sprintf("embedded/edit_url/%s", templateID)
 
 	response, err := m.get(path)
+	if err != nil {
+		return nil, err
+	}
+
+	data := &model.EmbeddedTemplateResponse{}
+	err = json.NewDecoder(response.Body).Decode(data)
+	if err != nil {
+		return nil, err
+	}
+	return data.GetEmbedded(), nil
+}
+
+// GetEmbeddedTemplateEditURLForPreview - Retrieves an embedded template object for preview.
+// This method uses model.CreateEmbeddedTemplateRequest under the hood which probably needs to be
+// renamed so that it can be reused across different methods.
+func (m *Client) GetEmbeddedTemplateEditURLForPreview(templateID string) (*model.EmbeddedTemplateEditURL, error) {
+	if templateID == "" {
+		return nil, fmt.Errorf("invalid argument: %s", templateID)
+	}
+
+	req := model.CreateEmbeddedTemplateRequest{}
+	req.PreviewOnly = true
+	req.TestMode = true
+
+	params, writer, err := m.marshalMultipartCreateEmbeddedTemplateRequest(req)
+	if err != nil {
+		return nil, err
+	}
+
+	path := fmt.Sprintf("embedded/edit_url/%s", templateID)
+
+	response, err := m.post(path, params, *writer)
 	if err != nil {
 		return nil, err
 	}
@@ -225,6 +261,12 @@ func (m *Client) marshalMultipartCreateEmbeddedTemplateRequest(embRequest model.
 					return nil, nil, err
 				}
 				tm.Write([]byte(m.boolToIntString(embRequest.IsShowingPreview())))
+			case PreviewOnlyKey:
+				tm, err := w.CreateFormField(PreviewOnlyKey)
+				if err != nil {
+					return nil, nil, err
+				}
+				tm.Write([]byte(m.boolToIntString(embRequest.IsPreviewOnly())))
 			}
 		case reflect.Bool:
 			formField, err := w.CreateFormField(fieldTag)
