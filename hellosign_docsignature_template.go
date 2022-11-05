@@ -105,11 +105,11 @@ func (m *Client) GetEmbeddedTemplateEditURLForPreview(templateID string) (*model
 		return nil, fmt.Errorf("invalid argument: %s", templateID)
 	}
 
-	req := model.CreateEmbeddedTemplateRequest{}
+	req := model.EditEmbeddedTemplateRequest{}
 	req.PreviewOnly = true
 	req.TestMode = true
 
-	params, writer, err := m.marshalMultipartCreateEmbeddedTemplateRequest(req)
+	params, writer, err := m.marshalMultipartEditEmbeddedTemplateRequest(req)
 	if err != nil {
 		return nil, err
 	}
@@ -155,6 +155,137 @@ func (m *Client) GetTemplate(templateID string) (*model.Template, error) {
 }
 
 func (m *Client) marshalMultipartCreateEmbeddedTemplateRequest(embRequest model.CreateEmbeddedTemplateRequest) (*bytes.Buffer, *multipart.Writer, error) {
+
+	var b bytes.Buffer
+	w := multipart.NewWriter(&b)
+
+	structType := reflect.TypeOf(embRequest)
+	val := reflect.ValueOf(embRequest)
+
+	for i := 0; i < val.NumField(); i++ {
+
+		valueField := val.Field(i)
+		f := valueField.Interface()
+		val := reflect.ValueOf(f)
+		field := structType.Field(i)
+		fieldTag := field.Tag.Get(FormFieldKey)
+
+		switch val.Kind() {
+		case reflect.Map:
+			if fieldTag == MetadataKey {
+				for k, v := range embRequest.GetMetadata() {
+					formField, err := w.CreateFormField(fmt.Sprintf("%s[%v]", MetadataKey, k))
+					if err != nil {
+						return nil, nil, err
+					}
+					formField.Write([]byte(v))
+				}
+			}
+		case reflect.Slice:
+			switch fieldTag {
+			case TestModeKey:
+				tm, err := w.CreateFormField(TestModeKey)
+				if err != nil {
+					return nil, nil, err
+				}
+				tm.Write([]byte(m.boolToIntString(embRequest.GetTestMode())))
+			case ClientIDKey:
+				c, err := w.CreateFormField(ClientIDKey)
+				if err != nil {
+					return nil, nil, err
+				}
+				if embRequest.GetClientID() != "" {
+					c.Write([]byte(embRequest.GetClientID()))
+				}
+			case SignerRolesKey:
+				for i, sr := range embRequest.GetSignerRoles() {
+					name, err := w.CreateFormField(fmt.Sprintf("%s[%v][name]", SignerRolesKey, i))
+					if err != nil {
+						return nil, nil, err
+					}
+					name.Write([]byte(sr.GetName()))
+
+					if sr.GetOrder() != 0 {
+						order, err := w.CreateFormField(fmt.Sprintf("%s[%v][order]", SignerRolesKey, i))
+						if err != nil {
+							return nil, nil, err
+						}
+						order.Write([]byte(strconv.Itoa(sr.GetOrder())))
+					}
+				}
+			case FileKey:
+				for i, path := range embRequest.GetFile() {
+					file, _ := os.Open(path)
+
+					formField, err := w.CreateFormFile(fmt.Sprintf("%s[%v]", FileKey, i), file.Name())
+					if err != nil {
+						return nil, nil, err
+					}
+					_, err = io.Copy(formField, file)
+				}
+			case FileURLKey:
+				for i, fileURL := range embRequest.GetFileURL() {
+					formField, err := w.CreateFormField(fmt.Sprintf("%s[%v]", FileURLKey, i))
+					if err != nil {
+						return nil, nil, err
+					}
+					formField.Write([]byte(fileURL))
+				}
+			case TitleKey:
+				f, err := w.CreateFormField(TitleKey)
+				if err != nil {
+					return nil, nil, err
+				}
+				if embRequest.GetTitle() != "" {
+					f.Write([]byte(embRequest.GetTitle()))
+				}
+			case SubjectKey:
+				f, err := w.CreateFormField(SubjectKey)
+				if err != nil {
+					return nil, nil, err
+				}
+				if embRequest.GetSubject() != "" {
+					f.Write([]byte(embRequest.GetSubject()))
+				}
+			case MessageKey:
+				f, err := w.CreateFormField(MessageKey)
+				if err != nil {
+					return nil, nil, err
+				}
+				if embRequest.GetMessage() != "" {
+					f.Write([]byte(embRequest.GetMessage()))
+				}
+			case ShowPreviewKey:
+				tm, err := w.CreateFormField(ShowPreviewKey)
+				if err != nil {
+					return nil, nil, err
+				}
+				tm.Write([]byte(m.boolToIntString(embRequest.IsShowingPreview())))
+
+			}
+		case reflect.Bool:
+			formField, err := w.CreateFormField(fieldTag)
+			if err != nil {
+				return nil, nil, err
+			}
+			formField.Write([]byte(m.boolToIntString(val.Bool())))
+		default:
+			if val.String() != "" {
+				formField, err := w.CreateFormField(fieldTag)
+				if err != nil {
+					return nil, nil, err
+				}
+				formField.Write([]byte(val.String()))
+			}
+		}
+	}
+
+	w.Close()
+	return &b, w, nil
+}
+
+// TODO Abhishek: merge this with the create and use common parsing code
+func (m *Client) marshalMultipartEditEmbeddedTemplateRequest(embRequest model.EditEmbeddedTemplateRequest) (*bytes.Buffer, *multipart.Writer, error) {
 
 	var b bytes.Buffer
 	w := multipart.NewWriter(&b)

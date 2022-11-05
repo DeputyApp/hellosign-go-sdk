@@ -2,18 +2,18 @@
 version: 1
 interactions:
 - request:
-    body: "--fdf8a02d317dacd9e505e0ac8d8ee5b70a7468bf529a0a86665cfa0463e0\r\nContent-Disposition:
-      form-data; name=\"test_mode\"\r\n\r\n1\r\n--fdf8a02d317dacd9e505e0ac8d8ee5b70a7468bf529a0a86665cfa0463e0\r\nContent-Disposition:
-      form-data; name=\"show_preview\"\r\n\r\n0\r\n--fdf8a02d317dacd9e505e0ac8d8ee5b70a7468bf529a0a86665cfa0463e0\r\nContent-Disposition:
-      form-data; name=\"preview_only\"\r\n\r\n1\r\n--fdf8a02d317dacd9e505e0ac8d8ee5b70a7468bf529a0a86665cfa0463e0--\r\n"
+    body: "--b915cc48cf92d76c2afc8bb387e2259e2eb41c4b21b0dca640e62e636954\r\nContent-Disposition:
+      form-data; name=\"test_mode\"\r\n\r\n1\r\n--b915cc48cf92d76c2afc8bb387e2259e2eb41c4b21b0dca640e62e636954\r\nContent-Disposition:
+      form-data; name=\"show_preview\"\r\n\r\n0\r\n--b915cc48cf92d76c2afc8bb387e2259e2eb41c4b21b0dca640e62e636954\r\nContent-Disposition:
+      form-data; name=\"preview_only\"\r\n\r\n1\r\n--b915cc48cf92d76c2afc8bb387e2259e2eb41c4b21b0dca640e62e636954--\r\n"
     form: {}
     headers:
       Content-Type:
-      - multipart/form-data; boundary=fdf8a02d317dacd9e505e0ac8d8ee5b70a7468bf529a0a86665cfa0463e0
-    url: https://api.hellosign.com/v3/embedded/edit_url/a5a092da1d4476a5ad8a310834eaa1ca8df450d8
+      - multipart/form-data; boundary=b915cc48cf92d76c2afc8bb387e2259e2eb41c4b21b0dca640e62e636954
+    url: https://api.hellosign.com/v3/embedded/edit_url/87553598c48774de21a32ec198624868ecb1667d
     method: POST
   response:
-    body: '{"embedded":{"edit_url":"https:\/\/embedded.hellosign.com\/prep-and-send\/embedded-template?cached_params_token=70046a2fd30ea52a8bea61baa90eb142","expires_at":1666645443},"warnings":[{"warning_msg":"skip_signer_roles
+    body: '{"embedded":{"edit_url":"https:\/\/embedded.hellosign.com\/prep-and-send\/embedded-template?cached_params_token=b473faf9cb25374175be2ed571d62780","expires_at":1667636053},"warnings":[{"warning_msg":"skip_signer_roles
       is going to be deprecated and will be the default behavior moving forward. Remove
       the use of skip_signer_roles and use force_signer_roles to enforce showing the
       signer roles screen.","warning_name":"deprecated_parameter"},{"warning_msg":"skip_subject_message
@@ -34,16 +34,16 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Mon, 24 Oct 2022 20:04:04 GMT
+      - Sat, 05 Nov 2022 07:14:13 GMT
       P3p:
       - CP="NOP3PPOLICY"
       Server:
       - Apache
       Set-Cookie:
-      - AWSALB=GXDf9bgKZ1lrqgI9XuN+Bb0b/iK/xz+P5XwtJxIIlvXXfTMS9+F3jwggc2RSH9AJriWzk5IvnraYnwLmXX9mLXrQ/5hTHazAb7ih8ypAQh6Pt5hB/iKYqj0Mm72Q;
-        Expires=Mon, 31 Oct 2022 20:04:03 GMT; Path=/
-      - AWSALBCORS=GXDf9bgKZ1lrqgI9XuN+Bb0b/iK/xz+P5XwtJxIIlvXXfTMS9+F3jwggc2RSH9AJriWzk5IvnraYnwLmXX9mLXrQ/5hTHazAb7ih8ypAQh6Pt5hB/iKYqj0Mm72Q;
-        Expires=Mon, 31 Oct 2022 20:04:03 GMT; Path=/; SameSite=None; Secure
+      - AWSALB=OYdNROQiq9DiXGplyUjfEjurH8XgHinQw2xb0u5LazeNFYGGFlhhANrOXMT5+0MuFiEdxz25MchQPEKd0dCGbOJKwYeu5APy2PQ73Fs3sAPCYzRHGFazIrBm9Me/;
+        Expires=Sat, 12 Nov 2022 07:14:13 GMT; Path=/
+      - AWSALBCORS=OYdNROQiq9DiXGplyUjfEjurH8XgHinQw2xb0u5LazeNFYGGFlhhANrOXMT5+0MuFiEdxz25MchQPEKd0dCGbOJKwYeu5APy2PQ73Fs3sAPCYzRHGFazIrBm9Me/;
+        Expires=Sat, 12 Nov 2022 07:14:13 GMT; Path=/; SameSite=None; Secure
       Strict-Transport-Security:
       - max-age=31536000
       User-Agent:
@@ -53,9 +53,9 @@ interactions:
       X-Ratelimit-Limit:
       - "10"
       X-Ratelimit-Limit-Remaining:
-      - "9"
+      - "8"
       X-Ratelimit-Reset:
-      - "1666641843"
+      - "1667632459"
     status: 200 OK
     code: 200
     duration: ""
