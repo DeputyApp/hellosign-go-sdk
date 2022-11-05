@@ -1,8 +1,8 @@
 package model
 
-// CreateEmbeddedTemplateRequest contains the request parameters for creating an embedded template draft
+// EditEmbeddedTemplateRequest contains the request parameters for creating an embedded template draft
 // Note: skip_me_now, cc_roles, attachments, allow_reassign, allow_css, editor_options, field_options, merge_field are unused and thus excluded
-type CreateEmbeddedTemplateRequest struct {
+type EditEmbeddedTemplateRequest struct {
 	TestMode     bool              `form_field:"test_mode"`
 	ClientID     string            `form_field:"client_id"`
 	FileURL      []string          `form_field:"file_url"`
@@ -13,11 +13,12 @@ type CreateEmbeddedTemplateRequest struct {
 	SignerRoles  []SignerRole      `form_field:"signer_roles"`
 	Metadata     map[string]string `form_field:"metadata"`
 	ShowPreview  bool              `form_field:"show_preview"`
+	PreviewOnly  bool              `form_field:"preview_only"`
 	CustomFields string            `form_field:"merge_fields"`
 }
 
 // GetTestMode returns TestMode
-func (e *CreateEmbeddedTemplateRequest) GetTestMode() bool {
+func (e *EditEmbeddedTemplateRequest) GetTestMode() bool {
 	if e != nil {
 		return e.TestMode
 	}
@@ -25,7 +26,7 @@ func (e *CreateEmbeddedTemplateRequest) GetTestMode() bool {
 }
 
 // GetClientID returns ClientID
-func (e *CreateEmbeddedTemplateRequest) GetClientID() string {
+func (e *EditEmbeddedTemplateRequest) GetClientID() string {
 	if e != nil {
 		return e.ClientID
 	}
@@ -33,7 +34,7 @@ func (e *CreateEmbeddedTemplateRequest) GetClientID() string {
 }
 
 // GetFileURL returns FileURL
-func (e *CreateEmbeddedTemplateRequest) GetFileURL() []string {
+func (e *EditEmbeddedTemplateRequest) GetFileURL() []string {
 	if e != nil {
 		return e.FileURL
 	}
@@ -41,7 +42,7 @@ func (e *CreateEmbeddedTemplateRequest) GetFileURL() []string {
 }
 
 // GetFile returns File
-func (e *CreateEmbeddedTemplateRequest) GetFile() []string {
+func (e *EditEmbeddedTemplateRequest) GetFile() []string {
 	if e != nil {
 		return e.File
 	}
@@ -49,7 +50,7 @@ func (e *CreateEmbeddedTemplateRequest) GetFile() []string {
 }
 
 // GetTitle returns Title
-func (e *CreateEmbeddedTemplateRequest) GetTitle() string {
+func (e *EditEmbeddedTemplateRequest) GetTitle() string {
 	if e != nil {
 		return e.Title
 	}
@@ -57,7 +58,7 @@ func (e *CreateEmbeddedTemplateRequest) GetTitle() string {
 }
 
 // GetSubject returns Subject
-func (e *CreateEmbeddedTemplateRequest) GetSubject() string {
+func (e *EditEmbeddedTemplateRequest) GetSubject() string {
 	if e != nil {
 		return e.Subject
 	}
@@ -65,7 +66,7 @@ func (e *CreateEmbeddedTemplateRequest) GetSubject() string {
 }
 
 // GetMessage returns Message
-func (e *CreateEmbeddedTemplateRequest) GetMessage() string {
+func (e *EditEmbeddedTemplateRequest) GetMessage() string {
 	if e != nil {
 		return e.Message
 	}
@@ -73,7 +74,7 @@ func (e *CreateEmbeddedTemplateRequest) GetMessage() string {
 }
 
 // GetSignerRoles returns Signers
-func (e *CreateEmbeddedTemplateRequest) GetSignerRoles() []SignerRole {
+func (e *EditEmbeddedTemplateRequest) GetSignerRoles() []SignerRole {
 	if e != nil {
 		return e.SignerRoles
 	}
@@ -81,7 +82,7 @@ func (e *CreateEmbeddedTemplateRequest) GetSignerRoles() []SignerRole {
 }
 
 // GetMetadata returns Metadata
-func (e *CreateEmbeddedTemplateRequest) GetMetadata() map[string]string {
+func (e *EditEmbeddedTemplateRequest) GetMetadata() map[string]string {
 	if e != nil {
 		return e.Metadata
 	}
@@ -89,7 +90,7 @@ func (e *CreateEmbeddedTemplateRequest) GetMetadata() map[string]string {
 }
 
 // IsShowingPreview returns ShowPreview
-func (e *CreateEmbeddedTemplateRequest) IsShowingPreview() bool {
+func (e *EditEmbeddedTemplateRequest) IsShowingPreview() bool {
 	if e != nil {
 		return e.ShowPreview
 	}
@@ -97,9 +98,17 @@ func (e *CreateEmbeddedTemplateRequest) IsShowingPreview() bool {
 }
 
 // GetCustomFields returns CustomFields
-func (e *CreateEmbeddedTemplateRequest) GetCustomFields() string {
+func (e *EditEmbeddedTemplateRequest) GetCustomFields() string {
 	if e != nil {
 		return e.CustomFields
 	}
 	return ""
+}
+
+// IsPreviewOnly returns PreviewOnly
+func (e *EditEmbeddedTemplateRequest) IsPreviewOnly() bool {
+	if e != nil {
+		return e.PreviewOnly
+	}
+	return false
 }

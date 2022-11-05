@@ -3,13 +3,13 @@ version: 1
 interactions:
 - request:
     body: !!binary |
-      LS05NmMyNTU5NDIzZWMwNWFiZWQ0NjljNzUwODA2MjBmYzEzOTQyYjlkZDFhZTU4NDc0YT
-      g5NjlmOWJkMDYNCkNvbnRlbnQtRGlzcG9zaXRpb246IGZvcm0tZGF0YTsgbmFtZT0idGVz
-      dF9tb2RlIg0KDQoxDQotLTk2YzI1NTk0MjNlYzA1YWJlZDQ2OWM3NTA4MDYyMGZjMTM5ND
-      JiOWRkMWFlNTg0NzRhODk2OWY5YmQwNg0KQ29udGVudC1EaXNwb3NpdGlvbjogZm9ybS1k
-      YXRhOyBuYW1lPSJjbGllbnRfaWQiDQoNCmY2ZjI0YjljMDM5ZjczZTQzMzdhNjM0NGQ3Nz
-      MzZDJhDQotLTk2YzI1NTk0MjNlYzA1YWJlZDQ2OWM3NTA4MDYyMGZjMTM5NDJiOWRkMWFl
-      NTg0NzRhODk2OWY5YmQwNg0KQ29udGVudC1EaXNwb3NpdGlvbjogZm9ybS1kYXRhOyBuYW
+      LS02ODk4OWQxNDMxZWRhOTMwYzMxMzAwODQ4OTA5NzhjMzI4NmM3ZDA2OWY2YjYyZmI5ZT
+      k1ZmFjYzZlOWUNCkNvbnRlbnQtRGlzcG9zaXRpb246IGZvcm0tZGF0YTsgbmFtZT0idGVz
+      dF9tb2RlIg0KDQoxDQotLTY4OTg5ZDE0MzFlZGE5MzBjMzEzMDA4NDg5MDk3OGMzMjg2Yz
+      dkMDY5ZjZiNjJmYjllOTVmYWNjNmU5ZQ0KQ29udGVudC1EaXNwb3NpdGlvbjogZm9ybS1k
+      YXRhOyBuYW1lPSJjbGllbnRfaWQiDQoNCmViOTA2ZWMwZTY3ZGM1ZjE0YmJhNTdmNDMwMz
+      llOGIwDQotLTY4OTg5ZDE0MzFlZGE5MzBjMzEzMDA4NDg5MDk3OGMzMjg2YzdkMDY5ZjZi
+      NjJmYjllOTVmYWNjNmU5ZQ0KQ29udGVudC1EaXNwb3NpdGlvbjogZm9ybS1kYXRhOyBuYW
       1lPSJmaWxlWzBdIjsgZmlsZW5hbWU9ImZpeHR1cmVzL29mZmVyX2xldHRlci5wZGYiDQpD
       b250ZW50LVR5cGU6IGFwcGxpY2F0aW9uL29jdGV0LXN0cmVhbQ0KDQolUERGLTEuNAol+/
       z9/go0IDAgb2JqCjw8Ci9QYXJlbnQgMyAwIFIKL1Jlc291cmNlcyA1IDAgUgovTWVkaWFC
@@ -1336,37 +1336,39 @@ interactions:
       PDwKL1Jvb3QgMSAwIFIKL0lEIFsoNmUxZjRlMzUtMDYzYS00NzVhLTkyZTMtOTdmMDk5MD
       c5ZjcyKSAoNmUxZjRlMzUtMDYzYS00NzVhLTkyZTMtOTdmMDk5MDc5ZjcyKV0KL0luZm8g
       MiAwIFIKL1NpemUgMzIKL1ByZXYgNTk2MDUgPj4Kc3RhcnR4cmVmCjY5MjM4CiUlRU9GCg
-      0KLS05NmMyNTU5NDIzZWMwNWFiZWQ0NjljNzUwODA2MjBmYzEzOTQyYjlkZDFhZTU4NDc0
-      YTg5NjlmOWJkMDYNCkNvbnRlbnQtRGlzcG9zaXRpb246IGZvcm0tZGF0YTsgbmFtZT0idG
-      l0bGUiDQoNCk9mZmVyIExldHRlcg0KLS05NmMyNTU5NDIzZWMwNWFiZWQ0NjljNzUwODA2
-      MjBmYzEzOTQyYjlkZDFhZTU4NDc0YTg5NjlmOWJkMDYNCkNvbnRlbnQtRGlzcG9zaXRpb2
+      0KLS02ODk4OWQxNDMxZWRhOTMwYzMxMzAwODQ4OTA5NzhjMzI4NmM3ZDA2OWY2YjYyZmI5
+      ZTk1ZmFjYzZlOWUNCkNvbnRlbnQtRGlzcG9zaXRpb246IGZvcm0tZGF0YTsgbmFtZT0idG
+      l0bGUiDQoNCk9mZmVyIExldHRlcg0KLS02ODk4OWQxNDMxZWRhOTMwYzMxMzAwODQ4OTA5
+      NzhjMzI4NmM3ZDA2OWY2YjYyZmI5ZTk1ZmFjYzZlOWUNCkNvbnRlbnQtRGlzcG9zaXRpb2
       46IGZvcm0tZGF0YTsgbmFtZT0ic2lnbmVyX3JvbGVzWzBdW25hbWVdIg0KDQpFbXBsb3ll
-      ZQ0KLS05NmMyNTU5NDIzZWMwNWFiZWQ0NjljNzUwODA2MjBmYzEzOTQyYjlkZDFhZTU4ND
-      c0YTg5NjlmOWJkMDYNCkNvbnRlbnQtRGlzcG9zaXRpb246IGZvcm0tZGF0YTsgbmFtZT0i
-      bWV0YWRhdGFbbm9dIg0KDQpjYXRzDQotLTk2YzI1NTk0MjNlYzA1YWJlZDQ2OWM3NTA4MD
-      YyMGZjMTM5NDJiOWRkMWFlNTg0NzRhODk2OWY5YmQwNg0KQ29udGVudC1EaXNwb3NpdGlv
-      bjogZm9ybS1kYXRhOyBuYW1lPSJtZXRhZGF0YVttb3JlXSINCg0KZG9ncw0KLS05NmMyNT
-      U5NDIzZWMwNWFiZWQ0NjljNzUwODA2MjBmYzEzOTQyYjlkZDFhZTU4NDc0YTg5NjlmOWJk
-      MDYNCkNvbnRlbnQtRGlzcG9zaXRpb246IGZvcm0tZGF0YTsgbmFtZT0ic2hvd19wcmV2aW
-      V3Ig0KDQoxDQotLTk2YzI1NTk0MjNlYzA1YWJlZDQ2OWM3NTA4MDYyMGZjMTM5NDJiOWRk
-      MWFlNTg0NzRhODk2OWY5YmQwNg0KQ29udGVudC1EaXNwb3NpdGlvbjogZm9ybS1kYXRhOy
+      ZQ0KLS02ODk4OWQxNDMxZWRhOTMwYzMxMzAwODQ4OTA5NzhjMzI4NmM3ZDA2OWY2YjYyZm
+      I5ZTk1ZmFjYzZlOWUNCkNvbnRlbnQtRGlzcG9zaXRpb246IGZvcm0tZGF0YTsgbmFtZT0i
+      bWV0YWRhdGFbbm9dIg0KDQpjYXRzDQotLTY4OTg5ZDE0MzFlZGE5MzBjMzEzMDA4NDg5MD
+      k3OGMzMjg2YzdkMDY5ZjZiNjJmYjllOTVmYWNjNmU5ZQ0KQ29udGVudC1EaXNwb3NpdGlv
+      bjogZm9ybS1kYXRhOyBuYW1lPSJtZXRhZGF0YVttb3JlXSINCg0KZG9ncw0KLS02ODk4OW
+      QxNDMxZWRhOTMwYzMxMzAwODQ4OTA5NzhjMzI4NmM3ZDA2OWY2YjYyZmI5ZTk1ZmFjYzZl
+      OWUNCkNvbnRlbnQtRGlzcG9zaXRpb246IGZvcm0tZGF0YTsgbmFtZT0ic2hvd19wcmV2aW
+      V3Ig0KDQoxDQotLTY4OTg5ZDE0MzFlZGE5MzBjMzEzMDA4NDg5MDk3OGMzMjg2YzdkMDY5
+      ZjZiNjJmYjllOTVmYWNjNmU5ZQ0KQ29udGVudC1EaXNwb3NpdGlvbjogZm9ybS1kYXRhOy
       BuYW1lPSJtZXJnZV9maWVsZHMiDQoNClt7Im5hbWUiOiJTYWxhcnkiLCJ0eXBlIjoidGV4
-      dCJ9LHsibmFtZSI6InppcCIsInR5cGUiOiJ0ZXh0In1dDQotLTk2YzI1NTk0MjNlYzA1YW
-      JlZDQ2OWM3NTA4MDYyMGZjMTM5NDJiOWRkMWFlNTg0NzRhODk2OWY5YmQwNi0tDQo=
+      dCJ9LHsibmFtZSI6InppcCIsInR5cGUiOiJ0ZXh0In1dDQotLTY4OTg5ZDE0MzFlZGE5Mz
+      BjMzEzMDA4NDg5MDk3OGMzMjg2YzdkMDY5ZjZiNjJmYjllOTVmYWNjNmU5ZS0tDQo=
     form: {}
     headers:
       Content-Type:
-      - multipart/form-data; boundary=96c2559423ec05abed469c75080620fc13942b9dd1ae58474a8969f9bd06
+      - multipart/form-data; boundary=68989d1431eda930c3130084890978c3286c7d069f6b62fb9e95facc6e9e
     url: https://api.hellosign.com/v3/template/create_embedded_draft
     method: POST
   response:
-    body: '{"template":{"template_id":"a59a849baaf23e7cae5e9e1584762c27907fc50d","edit_url":"https:\/\/embedded.hellosign.com\/prep-and-send\/embedded-template?cached_params_token=963082c41a64ca54058ba6431960ce51","expires_at":1639137282},"warnings":[{"warning_msg":"The
+    body: '{"template":{"template_id":"44837e3cf7010f2844a6bb73a82fc33eb5be07f7","edit_url":"https:\/\/embedded.hellosign.com\/prep-and-send\/embedded-template?cached_params_token=7f015807049741f0be69cc7fcbfe9c49","expires_at":1667636420},"warnings":[{"warning_msg":"The
       created template will be locked. Upgrade your account to use more templates.","warning_name":"need_credit"}]}'
     headers:
       Access-Control-Allow-Headers:
-      - Authorization, Origin, X-Requested-With, Content-Type, Accept
+      - Authorization, Origin, X-Requested-With, Content-Type, Accept, Request-URL,
+        Referrer-Policy, Referer, Sec-CH-UA, Sec-CH-UA-Mobile, Sec-CH-UA-Platform,
+        Sec-Fetch-Site, User-Agent, X-User-Agent
       Access-Control-Allow-Methods:
-      - GET, POST, OPTIONS
+      - GET, POST, OPTIONS, PUT, DELETE
       Access-Control-Allow-Origin:
       - '*'
       Connection:
@@ -1374,28 +1376,28 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Fri, 10 Dec 2021 10:54:42 GMT
+      - Sat, 05 Nov 2022 07:20:20 GMT
       P3p:
       - CP="NOP3PPOLICY"
       Server:
       - Apache
       Set-Cookie:
-      - AWSALB=DkklKW1t8MS+mYDeLLDqBx9UvD7mF9aPrmP3dHyZBNEX63kREz59tlrcbB8fzkqpxpHoOxBfNHSC09NRso3v3GQUe6uZaZtoNYDjtZgrLXF5M6SKA5Ase3fNK29L;
-        Expires=Fri, 17 Dec 2021 10:54:41 GMT; Path=/
-      - AWSALBCORS=DkklKW1t8MS+mYDeLLDqBx9UvD7mF9aPrmP3dHyZBNEX63kREz59tlrcbB8fzkqpxpHoOxBfNHSC09NRso3v3GQUe6uZaZtoNYDjtZgrLXF5M6SKA5Ase3fNK29L;
-        Expires=Fri, 17 Dec 2021 10:54:41 GMT; Path=/; SameSite=None; Secure
+      - AWSALB=OUwv7XJY7mmLpuKm58fFGMftiPQJ6pE981hvByG7FbQ3Q9nDdndSgOffjINmuHZx3IlqjQQDI6eRrllFZQk3va0yxK1DJWWaQt+kYBXile4M1r2bf5lnGVv4JYjX;
+        Expires=Sat, 12 Nov 2022 07:20:20 GMT; Path=/
+      - AWSALBCORS=OUwv7XJY7mmLpuKm58fFGMftiPQJ6pE981hvByG7FbQ3Q9nDdndSgOffjINmuHZx3IlqjQQDI6eRrllFZQk3va0yxK1DJWWaQt+kYBXile4M1r2bf5lnGVv4JYjX;
+        Expires=Sat, 12 Nov 2022 07:20:20 GMT; Path=/; SameSite=None; Secure
       Strict-Transport-Security:
       - max-age=31536000
       User-Agent:
       - HelloSign API
       Vary:
-      - Accept-Encoding
+      - Origin,Accept-Encoding
       X-Ratelimit-Limit:
       - "10"
       X-Ratelimit-Limit-Remaining:
       - "9"
       X-Ratelimit-Reset:
-      - "1639133681"
+      - "1667632820"
     status: 200 OK
     code: 200
     duration: ""

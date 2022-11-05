@@ -30,13 +30,13 @@ func TestClient_GetEmbeddedTemplateEditURLForPreview(t *testing.T) {
 
 	client := createVcrClient(vcr)
 
-	res, err := client.GetEmbeddedTemplateEditURLForPreview("a5a092da1d4476a5ad8a310834eaa1ca8df450d8")
+	res, err := client.GetEmbeddedTemplateEditURLForPreview("87553598c48774de21a32ec198624868ecb1667d")
 
 	assert.NotNil(t, res, "Should return response")
 	assert.Nil(t, err, "Should not return error")
-	
+
 	assert.Contains(t, res.GetEditURL(), "https://embedded.hellosign.com/prep-and-send/embedded-template?cached_params_token=")
-	assert.Equal(t, 1666645443, res.GetExpiresAt())
+	assert.Equal(t, 1667636053, res.GetExpiresAt())
 }
 
 func TestClient_CreateEmbeddedTemplate(t *testing.T) {
