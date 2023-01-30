@@ -74,17 +74,25 @@ func (m *Client) DeleteTemplate(templateID string) (*http.Response, error) {
 	return response, err
 }
 
-// GetEmbeddedTemplateEditURL - Retrieves an embedded template object.
-// TODO Abhishek: This is an incorrect implementation and should be replaced with a POST call.
-//
-//	A few things need to change and hence leaving it for now.
-func (m *Client) GetEmbeddedTemplateEditURL(templateID string) (*model.EmbeddedTemplateEditURL, error) {
+// GetEmbeddedTemplateEditURL - Retrieves an embedded template object to edit.
+func (m *Client) GetEmbeddedTemplateEditURL(templateID string, customFields string) (*model.EmbeddedTemplateEditURL, error) {
 	if templateID == "" {
 		return nil, fmt.Errorf("invalid argument: %s", templateID)
 	}
+
+	req := model.EditEmbeddedTemplateRequest{}
+	req.ShowPreview = true
+	req.TestMode = true
+	req.CustomFields = customFields
+
+	params, writer, err := m.marshalMultipartEditEmbeddedTemplateRequest(req)
+	if err != nil {
+		return nil, err
+	}
+
 	path := fmt.Sprintf("embedded/edit_url/%s", templateID)
 
-	response, err := m.get(path)
+	response, err := m.post(path, params, *writer)
 	if err != nil {
 		return nil, err
 	}
@@ -108,37 +116,6 @@ func (m *Client) GetEmbeddedTemplateEditURLForPreview(templateID string) (*model
 	req := model.EditEmbeddedTemplateRequest{}
 	req.PreviewOnly = true
 	req.TestMode = true
-
-	params, writer, err := m.marshalMultipartEditEmbeddedTemplateRequest(req)
-	if err != nil {
-		return nil, err
-	}
-
-	path := fmt.Sprintf("embedded/edit_url/%s", templateID)
-
-	response, err := m.post(path, params, *writer)
-	if err != nil {
-		return nil, err
-	}
-
-	data := &model.EmbeddedTemplateResponse{}
-	err = json.NewDecoder(response.Body).Decode(data)
-	if err != nil {
-		return nil, err
-	}
-	return data.GetEmbedded(), nil
-}
-
-// GetEmbeddedTemplateEditURLForEdit - Retrieves an embedded template object for edit.
-func (m *Client) GetEmbeddedTemplateEditURLForEdit(templateID string, customFields string) (*model.EmbeddedTemplateEditURL, error) {
-	if templateID == "" {
-		return nil, fmt.Errorf("invalid argument: %s", templateID)
-	}
-
-	req := model.EditEmbeddedTemplateRequest{}
-	req.ShowPreview = true
-	req.TestMode = true
-	req.CustomFields = customFields
 
 	params, writer, err := m.marshalMultipartEditEmbeddedTemplateRequest(req)
 	if err != nil {

@@ -1,43 +1,62 @@
 ---
 version: 1
-rwmutex: {}
 interactions:
-  - request:
-      body: ""
-      form: {}
-      headers: {}
-      url: https://api.hellosign.com/v3/embedded/edit_url/76a888f4ca1dc1f726cbfd3381d7b9a19066c047
-      method: GET
-    response:
-      body: '{"embedded":{"edit_url":"https:\/\/embedded.hellosign.com\/prep-and-send\/embedded-template?cached_params_token=741d9a4336eb5b26c772d647be0736e6","expires_at":1630908730}}'
-      headers:
-        Access-Control-Allow-Headers:
-          - Authorization, Origin, X-Requested-With, Content-Type, Accept
-        Access-Control-Allow-Methods:
-          - GET, POST, OPTIONS
-        Access-Control-Allow-Origin:
-          - '*'
-        Connection:
-          - keep-alive
-        Content-Type:
-          - application/json
-        Date:
-          - Tue, 12 Sep 2017 22:33:18 GMT
-        P3p:
-          - CP="NOP3PPOLICY"
-        Server:
-          - Apache
-        Strict-Transport-Security:
-          - max-age=15768000
-        User-Agent:
-          - HelloSign API
-        Vary:
-          - Accept-Encoding
-        X-Ratelimit-Limit:
-          - "2000"
-        X-Ratelimit-Limit-Remaining:
-          - "1998"
-        X-Ratelimit-Reset:
-          - "1505255598"
-      status: 200 OK
-      code: 200
+- request:
+    body: "--32b6f9cac074dcae068ccfc97ee27b19123735b1f3cab06e3d67eff401cc\r\nContent-Disposition:
+      form-data; name=\"test_mode\"\r\n\r\n1\r\n--32b6f9cac074dcae068ccfc97ee27b19123735b1f3cab06e3d67eff401cc\r\nContent-Disposition:
+      form-data; name=\"show_preview\"\r\n\r\n1\r\n--32b6f9cac074dcae068ccfc97ee27b19123735b1f3cab06e3d67eff401cc\r\nContent-Disposition:
+      form-data; name=\"preview_only\"\r\n\r\n0\r\n--32b6f9cac074dcae068ccfc97ee27b19123735b1f3cab06e3d67eff401cc\r\nContent-Disposition:
+      form-data; name=\"merge_fields\"\r\n\r\n[{\"name\":\"Salary\",\"type\":\"text\"},{\"name\":\"zip\",\"type\":\"text\"}]\r\n--32b6f9cac074dcae068ccfc97ee27b19123735b1f3cab06e3d67eff401cc--\r\n"
+    form: {}
+    headers:
+      Content-Type:
+      - multipart/form-data; boundary=32b6f9cac074dcae068ccfc97ee27b19123735b1f3cab06e3d67eff401cc
+    url: https://api.hellosign.com/v3/embedded/edit_url/87553598c48774de21a32ec198624868ecb1667d
+    method: POST
+  response:
+    body: '{"embedded":{"edit_url":"https:\/\/embedded.hellosign.com\/prep-and-send\/embedded-template?cached_params_token=da7eae70d99f7b75003a24b8e671ef70","expires_at":1675121213},"warnings":[{"warning_msg":"skip_signer_roles
+      is going to be deprecated and will be the default behavior moving forward. Remove
+      the use of skip_signer_roles and use force_signer_roles to enforce showing the
+      signer roles screen.","warning_name":"deprecated_parameter"},{"warning_msg":"skip_subject_message
+      is going to be deprecated and will be the default behavior moving forward. Remove
+      the use of skip_subject_message and use force_subject_message to enforce showing
+      the subject message screen.","warning_name":"deprecated_parameter"}]}'
+    headers:
+      Access-Control-Allow-Headers:
+      - Authorization, Origin, X-Requested-With, Content-Type, Accept, Request-URL,
+        Referrer-Policy, Referer, Sec-CH-UA, Sec-CH-UA-Mobile, Sec-CH-UA-Platform,
+        Sec-Fetch-Site, User-Agent, X-User-Agent
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS, PUT, DELETE
+      Access-Control-Allow-Origin:
+      - '*'
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Mon, 30 Jan 2023 22:26:53 GMT
+      P3p:
+      - CP="NOP3PPOLICY"
+      Server:
+      - Apache
+      Set-Cookie:
+      - AWSALB=PkobNN6sHmHFNpNYLQMc024PIqF3UNlZxjbofcl3MoV1SIhClr/hw6hdAZlH2rB2UkzFukR0Mydge3LzbMk4eed4G2iA8bS3no7ocEbnznFPK+YUkIMxmDk3mEWh;
+        Expires=Mon, 06 Feb 2023 22:26:53 GMT; Path=/
+      - AWSALBCORS=PkobNN6sHmHFNpNYLQMc024PIqF3UNlZxjbofcl3MoV1SIhClr/hw6hdAZlH2rB2UkzFukR0Mydge3LzbMk4eed4G2iA8bS3no7ocEbnznFPK+YUkIMxmDk3mEWh;
+        Expires=Mon, 06 Feb 2023 22:26:53 GMT; Path=/; SameSite=None; Secure
+      Strict-Transport-Security:
+      - max-age=31536000
+      User-Agent:
+      - HelloSign API
+      Vary:
+      - Origin,Accept-Encoding
+      X-Ratelimit-Limit:
+      - "10"
+      X-Ratelimit-Limit-Remaining:
+      - "8"
+      X-Ratelimit-Reset:
+      - "1675117619"
+    status: 200 OK
+    code: 200
+    duration: ""
