@@ -75,13 +75,13 @@ func (m *Client) DeleteTemplate(templateID string) (*http.Response, error) {
 }
 
 // GetEmbeddedTemplateEditURL - Retrieves an embedded template object to edit.
-func (m *Client) GetEmbeddedTemplateEditURL(templateID string, customFields string) (*model.EmbeddedTemplateEditURL, error) {
+func (m *Client) GetEmbeddedTemplateEditURL(templateID string, customFields string, enableEdit bool) (*model.EmbeddedTemplateEditURL, error) {
 	if templateID == "" {
 		return nil, fmt.Errorf("invalid argument: %s", templateID)
 	}
 
 	req := model.EditEmbeddedTemplateRequest{}
-	req.ShowPreview = true
+	req.ShowPreview = enableEdit
 	req.TestMode = true
 	req.CustomFields = customFields
 

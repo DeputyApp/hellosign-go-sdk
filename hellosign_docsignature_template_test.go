@@ -27,13 +27,13 @@ func TestClient_GetEmbeddedTemplateEditURL(t *testing.T) {
 	}
 	cf, _ := json.Marshal(customFields)
 
-	res, err := client.GetEmbeddedTemplateEditURL("87553598c48774de21a32ec198624868ecb1667d", string(cf))
+	res, err := client.GetEmbeddedTemplateEditURL("87553598c48774de21a32ec198624868ecb1667d", string(cf), true)
 
 	assert.NotNil(t, res, "Should return response")
 	assert.Nil(t, err, "Should not return error")
 
 	assert.Contains(t, res.GetEditURL(), "https://embedded.hellosign.com/prep-and-send/embedded-template?cached_params_token=")
-	assert.Equal(t, 1675121213, res.GetExpiresAt())
+	assert.Equal(t, 1675124992, res.GetExpiresAt())
 }
 
 func TestClient_GetEmbeddedTemplateEditURLForPreview(t *testing.T) {
