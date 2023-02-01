@@ -74,17 +74,25 @@ func (m *Client) DeleteTemplate(templateID string) (*http.Response, error) {
 	return response, err
 }
 
-// GetEmbeddedTemplateEditURL - Retrieves an embedded template object.
-// TODO Abhishek: This is an incorrect implementation and should be replaced with a POST call.
-//
-//	A few things need to change and hence leaving it for now.
-func (m *Client) GetEmbeddedTemplateEditURL(templateID string) (*model.EmbeddedTemplateEditURL, error) {
+// GetEmbeddedTemplateEditURL - Retrieves an embedded template object to edit.
+func (m *Client) GetEmbeddedTemplateEditURL(templateID string, customFields string, enableEdit bool) (*model.EmbeddedTemplateEditURL, error) {
 	if templateID == "" {
 		return nil, fmt.Errorf("invalid argument: %s", templateID)
 	}
+
+	req := model.EditEmbeddedTemplateRequest{}
+	req.ShowPreview = enableEdit
+	req.TestMode = true
+	req.CustomFields = customFields
+
+	params, writer, err := m.marshalMultipartEditEmbeddedTemplateRequest(req)
+	if err != nil {
+		return nil, err
+	}
+
 	path := fmt.Sprintf("embedded/edit_url/%s", templateID)
 
-	response, err := m.get(path)
+	response, err := m.post(path, params, *writer)
 	if err != nil {
 		return nil, err
 	}
