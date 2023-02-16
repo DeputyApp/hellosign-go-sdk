@@ -82,7 +82,6 @@ func (m *Client) GetEmbeddedTemplateEditURL(templateID string, customFields stri
 
 	req := model.EditEmbeddedTemplateRequest{}
 	req.ShowPreview = enableEdit
-	req.TestMode = true
 	req.CustomFields = customFields
 
 	params, writer, err := m.marshalMultipartEditEmbeddedTemplateRequest(req)
@@ -115,7 +114,6 @@ func (m *Client) GetEmbeddedTemplateEditURLForPreview(templateID string) (*model
 
 	req := model.EditEmbeddedTemplateRequest{}
 	req.PreviewOnly = true
-	req.TestMode = true
 
 	params, writer, err := m.marshalMultipartEditEmbeddedTemplateRequest(req)
 	if err != nil {
