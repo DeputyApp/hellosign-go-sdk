@@ -27,13 +27,13 @@ func TestClient_GetEmbeddedTemplateEditURL(t *testing.T) {
 	}
 	cf, _ := json.Marshal(customFields)
 
-	res, err := client.GetEmbeddedTemplateEditURL("87553598c48774de21a32ec198624868ecb1667d", string(cf), true)
+	res, err := client.GetEmbeddedTemplateEditURL("87553598c48774de21a32ec198624868ecb1667d", string(cf), true, true)
 
 	assert.NotNil(t, res, "Should return response")
 	assert.Nil(t, err, "Should not return error")
 
 	assert.Contains(t, res.GetEditURL(), "https://embedded.hellosign.com/prep-and-send/embedded-template?cached_params_token=")
-	assert.Equal(t, 1675124992, res.GetExpiresAt())
+	assert.Equal(t, 1676894925, res.GetExpiresAt())
 }
 
 func TestClient_GetEmbeddedTemplateEditURLForPreview(t *testing.T) {
@@ -42,13 +42,13 @@ func TestClient_GetEmbeddedTemplateEditURLForPreview(t *testing.T) {
 
 	client := createVcrClient(vcr)
 
-	res, err := client.GetEmbeddedTemplateEditURLForPreview("87553598c48774de21a32ec198624868ecb1667d")
+	res, err := client.GetEmbeddedTemplateEditURLForPreview("87553598c48774de21a32ec198624868ecb1667d", true)
 
 	assert.NotNil(t, res, "Should return response")
 	assert.Nil(t, err, "Should not return error")
 
 	assert.Contains(t, res.GetEditURL(), "https://embedded.hellosign.com/prep-and-send/embedded-template?cached_params_token=")
-	assert.Equal(t, 1667636053, res.GetExpiresAt())
+	assert.Equal(t, 1676894926, res.GetExpiresAt())
 }
 
 func TestClient_CreateEmbeddedTemplate(t *testing.T) {

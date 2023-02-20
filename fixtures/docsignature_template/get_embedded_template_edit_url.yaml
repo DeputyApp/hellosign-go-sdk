@@ -2,19 +2,19 @@
 version: 1
 interactions:
 - request:
-    body: "--bd74790c2ec65ba160400d83659d625bb68e480e8f6c30416fcb8d9d7ea4\r\nContent-Disposition:
-      form-data; name=\"test_mode\"\r\n\r\n1\r\n--bd74790c2ec65ba160400d83659d625bb68e480e8f6c30416fcb8d9d7ea4\r\nContent-Disposition:
-      form-data; name=\"show_preview\"\r\n\r\n1\r\n--bd74790c2ec65ba160400d83659d625bb68e480e8f6c30416fcb8d9d7ea4\r\nContent-Disposition:
-      form-data; name=\"preview_only\"\r\n\r\n0\r\n--bd74790c2ec65ba160400d83659d625bb68e480e8f6c30416fcb8d9d7ea4\r\nContent-Disposition:
-      form-data; name=\"merge_fields\"\r\n\r\n[{\"name\":\"Salary\",\"type\":\"text\"},{\"name\":\"zip\",\"type\":\"text\"}]\r\n--bd74790c2ec65ba160400d83659d625bb68e480e8f6c30416fcb8d9d7ea4--\r\n"
+    body: "--365f3de6c92396c297c9c06b16dd337101e0cf35b747a3f2966bac276143\r\nContent-Disposition:
+      form-data; name=\"test_mode\"\r\n\r\n1\r\n--365f3de6c92396c297c9c06b16dd337101e0cf35b747a3f2966bac276143\r\nContent-Disposition:
+      form-data; name=\"show_preview\"\r\n\r\n1\r\n--365f3de6c92396c297c9c06b16dd337101e0cf35b747a3f2966bac276143\r\nContent-Disposition:
+      form-data; name=\"preview_only\"\r\n\r\n0\r\n--365f3de6c92396c297c9c06b16dd337101e0cf35b747a3f2966bac276143\r\nContent-Disposition:
+      form-data; name=\"merge_fields\"\r\n\r\n[{\"name\":\"Salary\",\"type\":\"text\"},{\"name\":\"zip\",\"type\":\"text\"}]\r\n--365f3de6c92396c297c9c06b16dd337101e0cf35b747a3f2966bac276143--\r\n"
     form: {}
     headers:
       Content-Type:
-      - multipart/form-data; boundary=bd74790c2ec65ba160400d83659d625bb68e480e8f6c30416fcb8d9d7ea4
+      - multipart/form-data; boundary=365f3de6c92396c297c9c06b16dd337101e0cf35b747a3f2966bac276143
     url: https://api.hellosign.com/v3/embedded/edit_url/87553598c48774de21a32ec198624868ecb1667d
     method: POST
   response:
-    body: '{"embedded":{"edit_url":"https:\/\/embedded.hellosign.com\/prep-and-send\/embedded-template?cached_params_token=51f585c23572beadd1350c87e20a4d08","expires_at":1675124992},"warnings":[{"warning_msg":"skip_signer_roles
+    body: '{"embedded":{"edit_url":"https:\/\/embedded.hellosign.com\/prep-and-send\/embedded-template?cached_params_token=60b1bf987c46393cd68e9bdd5a8de3aa","expires_at":1676894925},"warnings":[{"warning_msg":"skip_signer_roles
       is going to be deprecated and will be the default behavior moving forward. Remove
       the use of skip_signer_roles and use force_signer_roles to enforce showing the
       signer roles screen.","warning_name":"deprecated_parameter"},{"warning_msg":"skip_subject_message
@@ -35,16 +35,16 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Mon, 30 Jan 2023 23:29:52 GMT
+      - Mon, 20 Feb 2023 11:08:45 GMT
       P3p:
       - CP="NOP3PPOLICY"
       Server:
       - Apache
       Set-Cookie:
-      - AWSALB=52gzN4ADRyXZ4w91h3WVx7+6EZVoeC/kYFXxkBjmESeWgf7sYMUg0rP7Qjuj5TCv2Y3KTBQvmfBz60JB9JXmwbqsFEwJf15V+5OWbyTyguDumbx9EM27zjhBHQte;
-        Expires=Mon, 06 Feb 2023 23:29:52 GMT; Path=/
-      - AWSALBCORS=52gzN4ADRyXZ4w91h3WVx7+6EZVoeC/kYFXxkBjmESeWgf7sYMUg0rP7Qjuj5TCv2Y3KTBQvmfBz60JB9JXmwbqsFEwJf15V+5OWbyTyguDumbx9EM27zjhBHQte;
-        Expires=Mon, 06 Feb 2023 23:29:52 GMT; Path=/; SameSite=None; Secure
+      - AWSALB=cY/FEttvfiZTu2VGfjc8QMXXfIHplv/s7wukEdbudXY78CaU6+GysLRIvMhkJEkYlnD/M/fNx3+9F5o1t2GKdbzN39XZYi9Q7XAKiinhlAGxM4DD8VxScTpfu4ac;
+        Expires=Mon, 27 Feb 2023 11:08:45 GMT; Path=/
+      - AWSALBCORS=cY/FEttvfiZTu2VGfjc8QMXXfIHplv/s7wukEdbudXY78CaU6+GysLRIvMhkJEkYlnD/M/fNx3+9F5o1t2GKdbzN39XZYi9Q7XAKiinhlAGxM4DD8VxScTpfu4ac;
+        Expires=Mon, 27 Feb 2023 11:08:45 GMT; Path=/; SameSite=None; Secure
       Strict-Transport-Security:
       - max-age=31536000
       User-Agent:
@@ -56,7 +56,7 @@ interactions:
       X-Ratelimit-Limit-Remaining:
       - "9"
       X-Ratelimit-Reset:
-      - "1675121392"
+      - "1676891325"
     status: 200 OK
     code: 200
     duration: ""
