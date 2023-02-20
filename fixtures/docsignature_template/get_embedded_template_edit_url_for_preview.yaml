@@ -2,18 +2,18 @@
 version: 1
 interactions:
 - request:
-    body: "--b915cc48cf92d76c2afc8bb387e2259e2eb41c4b21b0dca640e62e636954\r\nContent-Disposition:
-      form-data; name=\"test_mode\"\r\n\r\n1\r\n--b915cc48cf92d76c2afc8bb387e2259e2eb41c4b21b0dca640e62e636954\r\nContent-Disposition:
-      form-data; name=\"show_preview\"\r\n\r\n0\r\n--b915cc48cf92d76c2afc8bb387e2259e2eb41c4b21b0dca640e62e636954\r\nContent-Disposition:
-      form-data; name=\"preview_only\"\r\n\r\n1\r\n--b915cc48cf92d76c2afc8bb387e2259e2eb41c4b21b0dca640e62e636954--\r\n"
+    body: "--a35c7444a78faca0ece5406c9a5044b8c2fe6177bd3eeb2bedc387cf4f7f\r\nContent-Disposition:
+      form-data; name=\"test_mode\"\r\n\r\n1\r\n--a35c7444a78faca0ece5406c9a5044b8c2fe6177bd3eeb2bedc387cf4f7f\r\nContent-Disposition:
+      form-data; name=\"show_preview\"\r\n\r\n0\r\n--a35c7444a78faca0ece5406c9a5044b8c2fe6177bd3eeb2bedc387cf4f7f\r\nContent-Disposition:
+      form-data; name=\"preview_only\"\r\n\r\n1\r\n--a35c7444a78faca0ece5406c9a5044b8c2fe6177bd3eeb2bedc387cf4f7f--\r\n"
     form: {}
     headers:
       Content-Type:
-      - multipart/form-data; boundary=b915cc48cf92d76c2afc8bb387e2259e2eb41c4b21b0dca640e62e636954
+      - multipart/form-data; boundary=a35c7444a78faca0ece5406c9a5044b8c2fe6177bd3eeb2bedc387cf4f7f
     url: https://api.hellosign.com/v3/embedded/edit_url/87553598c48774de21a32ec198624868ecb1667d
     method: POST
   response:
-    body: '{"embedded":{"edit_url":"https:\/\/embedded.hellosign.com\/prep-and-send\/embedded-template?cached_params_token=b473faf9cb25374175be2ed571d62780","expires_at":1667636053},"warnings":[{"warning_msg":"skip_signer_roles
+    body: '{"embedded":{"edit_url":"https:\/\/embedded.hellosign.com\/prep-and-send\/embedded-template?cached_params_token=e63363b4935283e10183b42eee9216f0","expires_at":1676894926},"warnings":[{"warning_msg":"skip_signer_roles
       is going to be deprecated and will be the default behavior moving forward. Remove
       the use of skip_signer_roles and use force_signer_roles to enforce showing the
       signer roles screen.","warning_name":"deprecated_parameter"},{"warning_msg":"skip_subject_message
@@ -34,16 +34,16 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Sat, 05 Nov 2022 07:14:13 GMT
+      - Mon, 20 Feb 2023 11:08:46 GMT
       P3p:
       - CP="NOP3PPOLICY"
       Server:
       - Apache
       Set-Cookie:
-      - AWSALB=OYdNROQiq9DiXGplyUjfEjurH8XgHinQw2xb0u5LazeNFYGGFlhhANrOXMT5+0MuFiEdxz25MchQPEKd0dCGbOJKwYeu5APy2PQ73Fs3sAPCYzRHGFazIrBm9Me/;
-        Expires=Sat, 12 Nov 2022 07:14:13 GMT; Path=/
-      - AWSALBCORS=OYdNROQiq9DiXGplyUjfEjurH8XgHinQw2xb0u5LazeNFYGGFlhhANrOXMT5+0MuFiEdxz25MchQPEKd0dCGbOJKwYeu5APy2PQ73Fs3sAPCYzRHGFazIrBm9Me/;
-        Expires=Sat, 12 Nov 2022 07:14:13 GMT; Path=/; SameSite=None; Secure
+      - AWSALB=NgajZ64qhCqkNP3nwgO+sQUrny2t7G91DfF0Lu9bI++5PZtdIdk7DFQ2zHzkoXP9VFpSeae1uSRhrf5QOpQru169BFgPBvrnlhHIc/GcATGV9x1ZCsCLzB5PL74c;
+        Expires=Mon, 27 Feb 2023 11:08:45 GMT; Path=/
+      - AWSALBCORS=NgajZ64qhCqkNP3nwgO+sQUrny2t7G91DfF0Lu9bI++5PZtdIdk7DFQ2zHzkoXP9VFpSeae1uSRhrf5QOpQru169BFgPBvrnlhHIc/GcATGV9x1ZCsCLzB5PL74c;
+        Expires=Mon, 27 Feb 2023 11:08:45 GMT; Path=/; SameSite=None; Secure
       Strict-Transport-Security:
       - max-age=31536000
       User-Agent:
@@ -55,7 +55,7 @@ interactions:
       X-Ratelimit-Limit-Remaining:
       - "8"
       X-Ratelimit-Reset:
-      - "1667632459"
+      - "1676891331"
     status: 200 OK
     code: 200
     duration: ""

@@ -75,7 +75,7 @@ func (m *Client) DeleteTemplate(templateID string) (*http.Response, error) {
 }
 
 // GetEmbeddedTemplateEditURL - Retrieves an embedded template object to edit.
-func (m *Client) GetEmbeddedTemplateEditURL(templateID string, customFields string, enableEdit bool) (*model.EmbeddedTemplateEditURL, error) {
+func (m *Client) GetEmbeddedTemplateEditURL(templateID, customFields string, enableEdit, testMode bool) (*model.EmbeddedTemplateEditURL, error) {
 	if templateID == "" {
 		return nil, fmt.Errorf("invalid argument: %s", templateID)
 	}
@@ -83,6 +83,7 @@ func (m *Client) GetEmbeddedTemplateEditURL(templateID string, customFields stri
 	req := model.EditEmbeddedTemplateRequest{}
 	req.ShowPreview = enableEdit
 	req.CustomFields = customFields
+	req.TestMode = testMode
 
 	params, writer, err := m.marshalMultipartEditEmbeddedTemplateRequest(req)
 	if err != nil {
@@ -107,13 +108,14 @@ func (m *Client) GetEmbeddedTemplateEditURL(templateID string, customFields stri
 // GetEmbeddedTemplateEditURLForPreview - Retrieves an embedded template object for preview.
 // This method uses model.CreateEmbeddedTemplateRequest under the hood which probably needs to be
 // renamed so that it can be reused across different methods.
-func (m *Client) GetEmbeddedTemplateEditURLForPreview(templateID string) (*model.EmbeddedTemplateEditURL, error) {
+func (m *Client) GetEmbeddedTemplateEditURLForPreview(templateID string, testMode bool) (*model.EmbeddedTemplateEditURL, error) {
 	if templateID == "" {
 		return nil, fmt.Errorf("invalid argument: %s", templateID)
 	}
 
 	req := model.EditEmbeddedTemplateRequest{}
 	req.PreviewOnly = true
+	req.TestMode = testMode
 
 	params, writer, err := m.marshalMultipartEditEmbeddedTemplateRequest(req)
 	if err != nil {
