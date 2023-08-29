@@ -3,15 +3,15 @@ package model
 // APIApp contains information about an API App
 // Note: we ignore options and oauth here
 type APIApp struct {
-	ClientID             string   `json:"client_id"`
-	CreatedAt            int      `json:"created_at"`
-	Name                 string   `json:"name"`
-	Domain               []string `json:"domain"`
-	CallbackURL          string   `json:"callback_url"`
-	IsApproved           bool     `json:"is_approved"`
-	OwnerAccount         *Account `json:"owner_account"`
+	ClientID     string   `json:"client_id"`
+	CreatedAt    int      `json:"created_at"`
+	Name         string   `json:"name"`
+	Domain       []string `json:"domain"`
+	CallbackURL  string   `json:"callback_url"`
+	IsApproved   bool     `json:"is_approved"`
+	OwnerAccount *Account `json:"owner_account"`
 	// WhiteLabelingOptions is an array of elements and values serialized to a string
-	WhiteLabelingOptions string   `json:"white_labeling_options"`
+	WhiteLabelingOptions string `json:"white_labeling_options"`
 }
 
 // GetClientID returns ClientID

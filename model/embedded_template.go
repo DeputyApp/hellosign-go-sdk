@@ -3,7 +3,7 @@ package model
 type EmbeddedTemplate struct {
 	TemplateID string `json:"template_id"`
 	EditURL    string `json:"edit_url"`
-	ExpiresAt  int32 `json:"expires_at"`
+	ExpiresAt  int32  `json:"expires_at"`
 }
 
 // GetTemplateID returns TemplateID

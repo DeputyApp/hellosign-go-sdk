@@ -10,7 +10,7 @@ type Template struct {
 	SignerRoles []SignerRole      `json:"signer_roles"` // The current status of the signature. eg: awaiting_signature, signed, declined
 	Documents   []Document        `json:"documents"`    // A collection of document that is associated with this template
 	IsCreator   bool              `json:"is_creator"`
-	IsEmbedded  bool              `json:"is_embedded"`  // True if the template was created using an embedded flow
+	IsEmbedded  bool              `json:"is_embedded"` // True if the template was created using an embedded flow
 	CanEdit     bool              `json:"can_edit"`
 	IsLocked    bool              `json:"is_locked"`
 }
