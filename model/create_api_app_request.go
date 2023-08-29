@@ -1,11 +1,11 @@
 package model
 
 type CreateApiAppRequest struct {
-	Name                 string `json:"name" form_field:"name"`
-	Domains               []string `json:"domain" form_field:"domains"`
-	CallbackURL          string `json:"callback_url" form_field:"callback_url"`
-	CustomLogoFile       string `json:"custom_logo_file" form_field:"custom_logo_file"`
-	WhiteLabelingOptions string `json:"white_labeling_options" form_field:"white_labeling_options"`
+	Name                 string   `json:"name" form_field:"name"`
+	Domains              []string `json:"domain" form_field:"domains"`
+	CallbackURL          string   `json:"callback_url" form_field:"callback_url"`
+	CustomLogoFile       string   `json:"custom_logo_file" form_field:"custom_logo_file"`
+	WhiteLabelingOptions string   `json:"white_labeling_options" form_field:"white_labeling_options"`
 }
 
 // GetName returns Name

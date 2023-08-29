@@ -12,8 +12,8 @@ import (
 )
 
 const (
-	HellosignCustomLogoFileKey = "custom_logo_file"
-	DomainsKey    string = "domains"
+	HellosignCustomLogoFileKey        = "custom_logo_file"
+	DomainsKey                 string = "domains"
 )
 
 // CreateNewApiApp – Creates a new API App.

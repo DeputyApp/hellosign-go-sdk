@@ -13,7 +13,7 @@ func TestClient_CreateNewApiApp(t *testing.T) {
 
 	client := createVcrClient(vcr)
 	expectedName := "Example API App – testing"
-	expectedDomains := []string{"example.com","test.com"}
+	expectedDomains := []string{"example.com", "test.com"}
 	expectedCallbackURL := "https://www.example.com/callback"
 	logo := "fixtures/beard.png"
 
